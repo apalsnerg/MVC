@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | About{% endblock %}
+
+{% block body %}
+<main>
+    <div class="twoColLayout">
+        <div class="leftCol">
+        <h1>Min Github</h1>
+        <p>
+            Min personliga Git repo finnes
+            <a href="https://trollface.com">Här</a>
+        </p>
+        </div>
+        <div class="rightCol">
+        <h1>Kursens Github</h1>
+        <p>
+            Kursen MVCs github kan hittas
+            <a href="https://github.com/dbwebb-se/mvc/tree/main">här.</a>
+        </p>
+        </div>
+    </div>
+    <div>
+        <figure class="mvcImage">
+            <figcaption>En varning till de vårdslösa.</figcaption>
+            <img src="{{ asset('img/gitmeme.jpg') }}" alt="Repo disaster">
+        </figure>
+    </div>
+</main>
+
+{% endblock %}

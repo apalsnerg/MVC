@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Slumpmässigt nummer{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Slumpmässiga grunkor</h1>
+        <p id="crazyText" class="crazyText red large">VÄLKOMMEN TILL MIN FANTASTISKA WEBBSIDA</p>
+        <p>Ditt slumpmässiga nummer är: {{ number }}.</p>
+    
+        <p>Din slumpmässiga bild är:</p>
+        <img src="{{ asset('img/' ~ randImg ~ '.jpg') }}" class="randImg" alt="Din slumpade bild">
+        <br>
+        <a href="{{ path('lucky') }}" class="randomizeLucky">Slumpa igen</a>
+    </main>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | Report{% endblock %}
+
+{% block body %}
+<main class="main">
+    <div class="jsonRoutes">
+        <p>
+            Dessa är de JSON-routes som finns tillgängliga.
+        </p>
+        <p>
+        <ul>
+           <li>Quote of the day - <a href="{{ path('quote') }}">quote</a>
+        </ul>
+        </p>
+    </div>
+</main>
+{% endblock %}

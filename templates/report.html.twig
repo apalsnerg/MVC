@@ -1,0 +1,115 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | Report{% endblock %}
+
+{% block body %}
+<main class="main">
+<div class="twoColLayout">
+    <aside class="leftCol">
+        <h3 id="table">Innehållsförteckning</h3>
+        <ul>
+            <li><a href="#kmom01">kmom01</a></li>
+            <li><a href="#kmom02">kmom02</a></li>
+            <li><a href="#kmom03">kmom03</a></li>
+            <li><a href="#kmom04">kmom04</a></li>
+            <li><a href="#kmom05">kmom05</a></li>
+            <li><a href="#kmom06">kmom06</a></li>
+            <li><a href="#kmom10">kmom10</a></li>
+        </ul>
+    </aside>
+
+    <div class="rightCol">
+        <h1>Välkommen till report-sidan</h1>
+        <div class="kmom kmom01" id="kmom01">
+        <h3>Kmom01</h3>
+        <p>
+            Berätta kort om dina förkunskaper och
+            tidigare erfarenheter kring objektorientering.
+            <br>
+            Vad gäller förukunskaper skulle jag säg att jag har en acceptabel
+            grundläggande förståelse för hur de fungerar och används.
+            Jag har studerat deras struktur och funktioner mestadels i Python,
+            men också i JavaScript och PHP. När det kommer till direkt
+            erfarenhet så har jag det till stor del huvudsakligen i Python,
+            eftersom vi använde oss av dem flitigt i OOP-kursen. Jag har dock
+            också arbetat med JavaScript-klasser i kursen DATABAS.
+        </p>
+        <br>
+        <p>
+            Berätta kort om PHPs modell för klasser och objekt.
+            Vilka är de grunder man behöver veta/förstå för att
+            kunna komma igång och skapa sina första klasser?
+            <br>
+            En klass i PHP fungerar i princip som en mall, från vilka man kan
+            skapa objekt, eller klassinstanser. Dessa objekt kan vara antingen
+            föränderliga, "mutable", eller oföränderliga, "immutable", beroende
+            på klassen de skapats från; vad jag förstår kan den senare också
+            kallas "readonly", men det är jag inte helt säker på.
+            Ett föränderligt objekt kan fördelas nya metoder, t.ex. genom
+            $foo->bar = function (), och nya medlemsvariabler. Å andra sidan
+            kan ett oföränderligt objekt inte tilldelas ens nya
+            medlemsvariabler; om den är född av en klass som bara har
+            medlemsvariabeln "age", kan du inte göra t.ex. $foo->height = 184.
+            En annan viktig detalj att ha till minnes är att PHP använder sig
+            av $this som självreferens inuti en klass, och inte t.ex. $self.
+        </p>
+        <br>
+        <p>
+            Reflektera kort över den kodbas, koden, strukturen som användes
+            till uppgiften me/report, hur uppfattar du den?
+            <br>
+            Till att börja med var det någorlunda överväldigande med alla
+            directories och filer som genererades när man först instantierade
+            Symfony, men nu efterhand så är det inte alls lika läskigt längre.
+            Strukturen för de olika mapparna är begripligt logiska när man
+            väl suttit och tänkt igenom det ett tag. Något som jag dock inte
+            riktigt har greppat ännu är var exakt man skall lägga till nya
+            filer; till exempel skapade jag en ny mapp direkt i assets för
+            att innehålla den JSON jag använda för /lucky-sidan. Om det
+            finns något särskilt ställe den bör vara istället så har jag
+            ingen aning. Något jag inte häller verkar begripa är hur
+            man ska läsa in JSON direkt i PHP i routerna; jag försökte
+            ideligen men det blev ett filepath-error hela tiden. Månne
+            vi lär oss hur man gör't senare i kursen.
+        </p>
+        <p>
+            Med tanke på artikeln “PHP The Right Way”,
+            vilka delar in den finner du extra intressanta och värdefulla?
+            Är det några särskilda områden
+            som du känner att du vill veta mer om?
+            Lyft fram några delar av artikeln som du känner mer värdefulla.
+            <br>
+            En av de absolut viktigaste delarna skulle jag säga är avsnittet om
+            att "escape"-a när man kör SQL med användarinput. Det är något som
+            lätt kan överskådas men som lika lätt kan utge en av de mest
+            förgörande farhågorna för ens databas och system i helhet.
+            Det jag tycker är särskilt intressant och som jag definitivt vill
+            fokusera mer tid på att studera är delen om säkerhet. Cybersäkerhet
+            är ett område jag tycker är extremt fascinerande, och något jag till
+            och med skulle kunna tänka mig att arbeta med i framtiden. Det må
+            förvisso förändras när jag fått mer erfarenhet i det området, och
+            kanske insett att jag inte tycker om det faktiska arbetet, men för
+            närvarande verkar det helt enkelt coolt.
+            Min personliga åsikt är alltså att de viktigaste aspekten att bli
+            synnerligen kompetent på är hur man skriver säker kod.
+            Multifunktionalitet och QoL kan komma senare, när man försäkrat sig
+            om att användaren, som ju alltid är en "fiende" när punkt kommer
+            till pricka, vare sig av oaktsamhet eller ondskefullhet, inte kan
+            förinta allt det man jobbat så hårt för att bygga upp.
+        </p>
+        <br>
+        <p>
+            Vilken är din TIL för detta kmom?
+            TIL att Symfony fungerar ganska snarlikt Express, och att twig
+            är snarlikt ejs-filer, vilket är en fantastisk lättnad. Det är
+            mycket enklare att handskas med ny teknologi när man iallafall
+            kan känna igen sig någonstans. 
+        </p>
+    </div>
+
+        
+
+    </div>
+</div>
+</main>
+{% endblock %}
