@@ -2,16 +2,19 @@
 
 namespace App\Controller;
 
+use App\Cards\Card;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
-class ReportController extends AbstractController {
+
+class ReportController extends AbstractController
+{
 
     #[Route("/", name: "home")]
     public function home(): Response
@@ -32,7 +35,8 @@ class ReportController extends AbstractController {
     }
 
     #[Route("/lucky", name:"lucky")]
-    public function lucky(): Response {
+    public function lucky(): Response
+    {
 
         $number = random_int(0, 100);
         $randImg = random_int(1, 12);
@@ -46,7 +50,8 @@ class ReportController extends AbstractController {
     }
 
     #[Route("/api", name: "api")]
-    public function api(Request $request, RouterInterface $router) {
+    public function api(Request $request, RouterInterface $router)
+    {
         $routes = $router->getRouteCollection();
         $data = [
             "routes" => $routes
@@ -56,7 +61,8 @@ class ReportController extends AbstractController {
     }
 
     #[Route("/api/quote", name: "quote")]
-    public function quote(): Response {
+    public function quote(): Response
+    {
         $quotes = 
         [
             "If you can't feed a hundred people, then feed just one.",
@@ -83,4 +89,41 @@ class ReportController extends AbstractController {
         #return $this->render("a.html.twig", $data);
         return $response;
     }
+
+    #[Route("/session", name:"session")]
+    public function sesh()
+    {
+        if (session_status() != "PHP_SESSION_ACTIVE") {
+            $session = new Session();
+            $session->start();
+        }
+
+        $session->set("test", "Testing if data submits");
+        $sessiondata = $session->getBag("attributes");
+
+        $data = [
+            "session" => $session,
+            "sessiondata" => $sessiondata
+        ];
+
+        return $this->render("session.html.twig", $data);
+    }
+
+
+    #[Route("/card", name:"card")]
+    public function card() {
+        if (session_status() != "PHP_SESSION_ACTIVE") {
+            $session = new Session();
+            $session->start();
+        }
+
+        $card = new Card();
+
+        $data = [
+            "card" => $card
+        ];
+
+        return $this->render("card.html.twig", $data);
+    }
+
 }

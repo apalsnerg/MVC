@@ -149,10 +149,12 @@ footer {
 
 .large {
     font-size: 60px;
-    transition: font-size 1s;
+    transition: font-size 1s, background-color 1s;
+    background-color: white;
 }
 
 .small {
     font-size: 20px;
-    transition: font-size 1s;
+    transition: font-size 1s, background-color 1s;
+    background-color: black;
 }

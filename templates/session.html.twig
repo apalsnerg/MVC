@@ -1,0 +1,15 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Session{% endblock %}
+
+{% block body %}
+    <main>
+        <h1>Här finns information om sessionen.</h1>
+        <p>Session dump.</p>
+        {{ dump(session) }}
+        <hr>
+        <p>Data contained in session (under #attributes)</p>
+        {{ dump(sessiondata) }}
+        
+    </main>
+{% endblock %}

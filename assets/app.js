@@ -6,8 +6,8 @@
  * which should already be in your base.html.twig.
  */
 import './styles/app.css';
-import './js/colours.mjs'
-import { crazyText } from './js/colours.mjs';
+import '../src/colours.mjs'
+import { crazyText } from '../src/colours.mjs';
 
 const colours = require("./json/colours.json");
 const text = document.getElementById("crazyText");
