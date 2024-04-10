@@ -158,3 +158,34 @@ footer {
     transition: font-size 1s, background-color 1s;
     background-color: black;
 }
+
+.♥️ {
+    color: red;
+    font-size: 80px;
+}
+
+.♦️ {
+    color: red;
+    font-size: 80px; 
+}
+
+.♣️ {
+    color: black;
+    font-size: 80px;
+}
+
+.♠️ {
+    color: black;
+    font-size: 80px;
+}
+
+.drawnCardsDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 500px;
+}
+
+.cardResetFieldset {
+    display: inline-block;
+}

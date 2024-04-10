@@ -10,6 +10,8 @@
         <hr>
         <p>Data contained in session (under #attributes)</p>
         {{ dump(sessiondata) }}
+        <hr>
+        <p><a href="{{ path('destroy') }}">Förinta sessionen</a></p>
         
     </main>
 {% endblock %}

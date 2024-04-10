@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Deck {% endblock %}
+
+{% block body %}
+<main class="main">
+    <h1>Kortleksuppgift - kortlek</h1>
+    {% set count = 0%}
+    {% for card in deck.deck %}
+        <span class="{{ card|slice(2,2) }}">{{ card }}</span>
+        {% set count = count + 1 %}
+        {% if count is divisible by(13) and count != 1 %}
+        <hr>
+        {% endif %}
+    {% endfor %}
+</main>
+
+{% endblock %}

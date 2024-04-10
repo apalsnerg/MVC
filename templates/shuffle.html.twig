@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Shuffle{% endblock %}
+
+{% block body %}
+<main class="main">
+    <div>
+    <h1>Kortleksuppgift - kortlek</h1>
+    {% set count = 0%}
+    {% for card in deck.deck %}
+        <span class="{{ card|slice(2,2) }}">{{ card }}</span>
+        {% set count = count + 1 %}
+        {% if count is divisible by(13) and count != 1 %}
+        <hr>
+        {% endif %}
+    {% endfor %}
+    </div>
+    <div>
+        <form method="POST" action="{{ path('newDeckRedirect') }}">
+            <fieldset class="cardResetFieldset">
+                <legend>Nollställ kortleken</legend>
+                <label for="shfl">Blanda om kortleken efter nollställning?</label>
+                <input type="checkbox" id="shfl" name="shfl">
+                <br><br>
+                <input type="submit" id="sbmt" name="sbmt" value="Nollställ">
+            </fieldset>
+    </div>
+</main>
+
+{% endblock %}

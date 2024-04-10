@@ -3,8 +3,18 @@
 {% block title %}Birks sida | MVC | Card {% endblock %}
 
 {% block body %}
-    <h1>Kortleksuppgift</h1>
-    <p>{{ card.value }}</p>
+    <h1>Kortleksuppgift - förgreningssida</h1>
+    <p>
+        Ditt slumpade kort blev: 
+        <span class="{{ card.suit }}">{{ card.graphic }}</span>
+    </p>
+    <hr>
+    <h2>Länkar till deluppgifter</h2>
+    <ul>
+        <li><a href="{{ path('deck') }}">Kortlek</a></li>
+        <li><a href="{{ path('draw') }}">Dra ett kort</a></li>
+        <li><a href="{{ path('shuffle') }}">Blanda kortleken</a></li>
+    </ul>
 
 
 {% endblock %}
