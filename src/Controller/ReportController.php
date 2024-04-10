@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use App\Cards\DeckOfCards;
-use App\Cards\GraphicCard;
+use App\Cards\{DeckOfCards, GraphicCard};
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\JsonResponse;

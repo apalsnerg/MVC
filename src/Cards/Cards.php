@@ -26,6 +26,14 @@ class Card
             $this->suit = $suit;
             }
     }
+
+    public function get_value() {
+        return $this->value;
+    }
+
+    public function get_suit() {
+        return $this->suit;
+    }
 }
     
 /**
@@ -33,15 +41,15 @@ class Card
 */
 class GraphicCard extends Card {
 
-public function __construct()
-{
-    parent::__construct(NULL);
-}
-
-public function graphic()
-{
-    return "[" . $this->suit . $this->value . "]";
-}
+    public function __construct()
+    {
+        parent::__construct(NULL);
+    }
+    
+    public function graphic()
+    {
+        return "[" . $this->suit . $this->value . "]";
+    }
 }
 
 /**
@@ -54,7 +62,7 @@ class CardHand
     
     public function __construct($cards = 5)
     {
-        for ($i=0; $i < $cards; $i++) {
+        for ($i=0; $i < $cards && $i < 53; $i++) {
             $this->hand[] = new GraphicCard();
         }
     }
@@ -81,7 +89,7 @@ class DeckOfCards
     public function __construct()
     {
         $suits = ["♣️", "♦️", "♥️", "♠️"];
-        $values = ["A", 1, 2, 3, 4, 5, 6, 7, 8, 9, "J", "Q", "K"];
+        $values = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"];
 
         for ($a = 0; $a < 4; $a++) {
             for ($i = 0; $i < 13; $i++) {
@@ -132,33 +140,6 @@ class DeckOfCards
         
         return $returns;
     }
-
-    /*
-     * Draws an amount of cards from the deck and removes it.
-     
-    public function draw($number = 1)
-    {
-        $returns = [];
-        for ($i = 0; $i < $number && $i <= count($this->deck); $i++) {
-            $max_idx = count($this->deck);
-            echo $max_idx;
-            if ($max_idx == 1) {
-                $random_card_idx = 0;
-            } else {
-                $random_card_idx = random_int(0, $max_idx - 1);
-            }
-            $returns[] = $this->deck[$random_card_idx];
-            $newDeck = $this->deck;
-            unset($newDeck[$random_card_idx]);
-            $newDeck = array_values($newDeck);
-            echo count($newDeck);
-            $this->deck = $newDeck;
-        }
-        echo count($this->deck);
-        
-        return $returns;
-    }
-    */
 
     public function getLength() {
         return count($this->deck);

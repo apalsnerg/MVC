@@ -3,18 +3,81 @@
 {% block title %}Birks sida | MVC | Card {% endblock %}
 
 {% block body %}
+<main class="main">
     <h1>Kortleksuppgift - förgreningssida</h1>
     <p>
-        Ditt slumpade kort blev: 
+        Grattis! Ditt slumpmässiga kort blev: 
         <span class="{{ card.suit }}">{{ card.graphic }}</span>
     </p>
-    <hr>
+    <div>
     <h2>Länkar till deluppgifter</h2>
     <ul>
         <li><a href="{{ path('deck') }}">Kortlek</a></li>
         <li><a href="{{ path('draw') }}">Dra ett kort</a></li>
         <li><a href="{{ path('shuffle') }}">Blanda kortleken</a></li>
     </ul>
+    </div>
+    <hr>
+
+    <div>
+        <h2>Förklaring av klasserna</h2>
+
+        <br>
+
+        <div>
+            <h3>Card</h3>
+            <p>Klassen Card utgör innehållet av ett spelkort.</p>
+            <p>Card innehar två attribut: värdet (Ess-Kung), och svit.</p>
+            <p>
+                Card innehar en konstruktör som bistår den med antingen
+                ett slumpmässigt eller givet värde och svit, samt två
+                metoder för att returnera dess värde och dess svit.
+            </p>
+        </div>
+        <div>
+            <h3>GraphicCard</h3>
+            <p>
+                Klassen GraphicCard ärver från Card
+                och utgör ett faktiskt spelkort.
+            </p>
+            <p>
+                Utöver dess föräldraattribut och -metoder innehar den en metod
+                för att returnera dess utseende, t.ex. [♠️4] för spader fyra.
+            </p>
+        </div>
+        <div>
+            <h3>CardHand</h3>
+            <p>
+                Klassen CardHand utgör en hand full med GraphicCards.
+                Dess huvudattribut är en array, $hand, där de lagrade
+                korten lagras.
+            </p>
+            <p>
+                Dess konstruktör skänker den som default fem kort,
+                men en godtycklig mängd kort att dela ut kan anges.
+                Därutöver innehar den en metod för att returnera
+                de korten den innehar.
+            </p>
+        </div>
+        <div>
+            <h3>DeckOfCards</h3>
+            <p>
+                Klassen DeckOfCards innefattar en hel spelkortslek utan jokrar.
+                Dess huvudattribut är en array $deck som innehåller
+                GraphicCards för att representera varje värde av varje svit.
+            </p>
+            <p>
+                Dess konstruktör lägger helt enkelt till de 52 olika korten.
+                Den innehar även metoder för att kasta om alla kort samt
+                för att returnera, "dra", ett eller flera kort och sedan
+                ta bort dem ur $deck.
+            </p>
+        </div>
+        <div>
+            <img src="{{ asset('img/card_uml.drawio.png') }}" alt="uml diagram">
+        </div>
+
+</main>
 
 
 {% endblock %}
