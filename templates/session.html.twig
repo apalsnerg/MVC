@@ -5,13 +5,18 @@
 {% block body %}
     <main>
         <h1>Här finns information om sessionen.</h1>
-        <p>Session dump.</p>
-        {{ dump(session) }}
-        <hr>
         <p>Data contained in session (under #attributes)</p>
         {{ dump(sessiondata) }}
         <hr>
         <p><a href="{{ path('destroy') }}">Förinta sessionen</a></p>
-        
+        <div>
+            {% for label, messages in app.flashes %}
+                {% for message in messages %}
+                    <div class="flash-{{ label }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
     </main>
 {% endblock %}

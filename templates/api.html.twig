@@ -8,7 +8,7 @@
         <p>
             Dessa är de JSON-routes som finns tillgängliga.
         </p>
-        <ul>
+        <ul class="apiList">
             <li> <a href="{{ path('api') }}">/api</a> - Denna sida.</li>
             <li> <a href="{{ path('api_quote') }}">/api/quote</a> - Få ett slumpmässigt citat.</li>
             <li> <a href="{{ path('api_session') }}">/api/session</a> - Få information om sessionen.</li>
@@ -19,9 +19,16 @@
             <li> <a href="{{ path('api_draw') }}">/api/deck/draw</a> - Draw one card from the deck.</li>
             <li> <a href="{{ path('api_drawnum') }}">/api/deck/draw/{number}</a> - Draw {number} of cards from the deck</li>
         </ul>
+        {% for label, messages in app.flashes %}
+            {% for message in messages %}
+                <div class="flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
         <hr>
         <p>Symfonys samling av alla routes, ifall listan är ofullständig</p>
-        <ul>
+        <ul class="apiList">
         {% for route in routes %}
             {% if "api" in route.path %}
            <li>{{ route.path }} - <a href="{{ route.path }}">quote</a></li>

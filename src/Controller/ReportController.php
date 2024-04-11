@@ -76,6 +76,11 @@ class ReportController extends AbstractController
         $session = $request->getSession();
         $session->clear();
 
+        $this->addFlash(
+            'notice',
+            'Session has been cleared!'
+        );
+
         return $this->redirect("session");
     }
 

@@ -2,6 +2,7 @@ body {
     background-color: skyblue;
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 100%;
 }
 
 main {
@@ -43,7 +44,7 @@ nav {
     margin: 0 auto;
     margin-top: 15px;
     text-align: center;
-    font-size: 25px;
+    font-size: 1rem;
 }
 
 nav a {
@@ -188,4 +189,21 @@ footer {
 
 .cardResetFieldset {
     display: inline-block;
+}
+
+.apiList {
+    list-style-type: none;
+}
+
+.flash-notice {
+    margin: 0 auto;
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+    max-width: 400px;
+}
+
+.flash-notice:before {
+    content: "ⓘ";
 }

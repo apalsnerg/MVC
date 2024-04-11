@@ -7,7 +7,7 @@
     <div>
     <h1>Kortleksuppgift - kortlek</h1>
     {% set count = 0%}
-    {% for card in deck.deck %}
+    {% for card in deck %}
         <span class="{{ card|slice(2,2) }}">{{ card }}</span>
         {% set count = count + 1 %}
         {% if count is divisible by(13) and count != 1 %}
