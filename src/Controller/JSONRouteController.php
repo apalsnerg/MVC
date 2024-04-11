@@ -214,8 +214,7 @@ class JSONRouteController extends AbstractController
 
         $data = [
             "cards" => $cards,
-            "length" => $length,
-            "deck" => $deck->deck
+            "deck length" => $length
         ];
 
 
@@ -249,8 +248,7 @@ class JSONRouteController extends AbstractController
 
         $data = [
             "cards" => $cards,
-            "length" => $cardCount,
-            "deck" => $deck
+            "length" => $cardCount
         ];
 
         $response = new JsonResponse($data);

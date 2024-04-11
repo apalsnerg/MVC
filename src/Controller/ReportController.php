@@ -121,7 +121,7 @@ class ReportController extends AbstractController
 
         $data = [
             "session" => $session,
-            "deck" => $deck
+            "deck" => $deck->deck
         ];
 
         return $this->render("deck.html.twig", $data);

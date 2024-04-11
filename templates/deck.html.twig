@@ -13,6 +13,14 @@
         <hr>
         {% endif %}
     {% endfor %}
+    <div>
+        <form method="POST" action="{{ path('newDeckRedirect') }}">
+            <fieldset class="cardResetFieldset">
+                <legend>Nollställ kortleken</legend>
+                <input type="submit" id="sbmt" name="sbmt" value="Nollställ">
+            </fieldset>
+        </form>
+    </div>
 </main>
 
 {% endblock %}
