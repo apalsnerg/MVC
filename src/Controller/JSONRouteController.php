@@ -2,9 +2,8 @@
 
 namespace App\Controller;
 
-use App\Cards\{DeckOfCards, GraphicCard};
+use App\Cards\DeckOfCards;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,12 +12,11 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
-
 class JSONRouteController extends AbstractController
 {
 
     #[Route("/api", name: "api")]
-    public function api(Request $request, RouterInterface $router): Response
+    public function api(RouterInterface $router): Response
     {
         $routes = $router->getRouteCollection();
         $data = [
@@ -83,8 +81,8 @@ class JSONRouteController extends AbstractController
     }
 
     #[Route("api/destroy", name:"api_destroy")]
-    public function seshdestroy(Request $request): Response {
-
+    public function seshdestroy(Request $request): Response
+    {
         $session = $request->getSession();
         $session->clear();
 
@@ -97,7 +95,8 @@ class JSONRouteController extends AbstractController
     }
 
     #[Route("api/deck", name:"api_deck")]
-    public function deck(): Response {
+    public function deck(): Response
+    {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
@@ -109,18 +108,6 @@ class JSONRouteController extends AbstractController
 
         $deckBag = $session->getBag("attributes");
         $deck = $deckBag->get("deck");
-        /*
-        $suits = ["♣️", "♦️", "♥️", "♠️"];
-        $values = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"];
-        foreach ($deck as &$card) {
-            for ($a = 0; $a < 4; $a++) {
-                for ($i = 0; $i < 13; $i++) {
-                    $idx = $suits[$a] . $a . $i;
-                    $card[$idx] = $card[$idx];
-                }
-            }
-        }
-        */
 
         $data = [
             "session" => $session,
@@ -136,7 +123,8 @@ class JSONRouteController extends AbstractController
     }
 
     #[Route("/api/deck/shuffle", name:"api_shuffle")]
-    public function shuffle(): Response {
+    public function shuffle(): Response
+    {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
@@ -172,7 +160,8 @@ class JSONRouteController extends AbstractController
     }
 
     #[Route("api/deck/reset", name:"api_reset")]
-    public function reset_shuffle(): JsonResponse {
+    public function resetShuffle(): JsonResponse
+    {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
@@ -195,7 +184,8 @@ class JSONRouteController extends AbstractController
     }
 
     #[Route("api/deck/draw", name:"api_draw")]
-    public function draw(Request $request): Response {
+    public function draw(Request $request): Response
+    {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -227,7 +217,8 @@ class JSONRouteController extends AbstractController
     }
     
     #[Route("api/deck/draw/{number}", name:"api_drawnum")]
-    public function drawnum(Request $request, int $number=1): Response {
+    public function drawnum(Request $request, int $number = 1): Response
+    {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -248,7 +239,7 @@ class JSONRouteController extends AbstractController
 
         $data = [
             "cards" => $cards,
-            "length" => $cardCount
+            "deck length" => $cardCount
         ];
 
         $response = new JsonResponse($data);
