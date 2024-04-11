@@ -14,44 +14,51 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
 
-class ReportController extends AbstractController
+class JSONRouteController extends AbstractController
 {
 
-    #[Route("/", name: "home")]
-    public function home(): Response
+    #[Route("/api", name: "api")]
+    public function api(Request $request, RouterInterface $router): Response
     {
-        return $this->render("home.html.twig");
-    }
-
-    #[Route("/about", name: "about")]
-    public function about(): Response
-    {
-        return $this->render("about.html.twig");
-    }
-
-    #[Route("/report", name: "report")]
-    public function report(): Response
-    {
-        return $this->render("report.html.twig");
-    }
-
-    #[Route("/lucky", name:"lucky")]
-    public function lucky(Request $request): Response
-    {
-
-        $number = random_int(0, 100);
-        $randImg = random_int(1, 12);
-
+        $routes = $router->getRouteCollection();
         $data = [
-            "number" => $number,
-            "randImg" => $randImg
+            "routes" => $routes
         ];
 
-
-        return $this->render("lucky.html.twig", $data);
+        return $this->render("api.html.twig", $data);
     }
 
-    #[Route("/session", name:"session")]
+    #[Route("/api/quote", name: "api_quote")]
+    public function quote(): Response
+    {
+        $quotes = 
+        [
+            "If you can't feed a hundred people, then feed just one.",
+            "From the moment I understood the weakness of my flesh, it disgusted me. " .
+            "I craved the strength and certainty of steel. I aspired to the purity of the Blessed Machine. " .
+            "Your kind cling to your flesh, as though it will not decay and fail you. " .
+            "One day the crude biomass you call the temple will wither, and you will beg my kind to save you. " .
+            "But I am already saved, for the Machine is immortal... Even in death I serve the Omnissiah.",
+            "You better cut the pizza in four pieces because I am not hungry enough to eat six.",
+            "He was a bold man that first ate an oyster."
+        ];
+        $number = random_int(0, 3);
+        $quote = $quotes[$number];
+        $timestamp = date("H:i:s d-m-Y");
+        $data = [
+            "quote" => $quote,
+            "date" => $timestamp
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+        
+        return $response;
+    }
+
+    #[Route("api/session", name:"api_session")]
     public function sesh(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -67,40 +74,24 @@ class ReportController extends AbstractController
             "sessiondata" => $sessiondata
         ];
 
-        return $this->render("session.html.twig", $data);
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
 
-    #[Route("/destroy", name:"destroy")]
+    #[Route("api/destroy", name:"api_destroy")]
     public function seshdestroy(Request $request): Response {
 
         $session = $request->getSession();
         $session->clear();
 
-        return $this->redirect("session");
+        return $this->redirect("../api");
     }
 
-
-    #[Route("/card", name:"card")]
-    public function card(): Response {
-        if (session_status() != "PHP_SESSION_ACTIVE") {
-            $session = new Session();
-            $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
-        }
-
-        $card = new GraphicCard();
-
-        $data = [
-            "card" => $card
-        ];
-
-        return $this->render("card.html.twig", $data);
-    }
-
-    #[Route("/card/deck", name:"deck")]
+    #[Route("api/deck", name:"api_deck")]
     public function deck(): Response {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -113,16 +104,33 @@ class ReportController extends AbstractController
 
         $deckBag = $session->getBag("attributes");
         $deck = $deckBag->get("deck");
+        /*
+        $suits = ["♣️", "♦️", "♥️", "♠️"];
+        $values = ["A", "1", "2", "3", "4", "5", "6", "7", "8", "9", "J", "Q", "K"];
+        foreach ($deck as &$card) {
+            for ($a = 0; $a < 4; $a++) {
+                for ($i = 0; $i < 13; $i++) {
+                    $idx = $suits[$a] . $a . $i;
+                    $card[$idx] = $card[$idx];
+                }
+            }
+        }
+        */
 
         $data = [
             "session" => $session,
-            "deck" => $deck
+            "deck" => $deck->deck
         ];
 
-        return $this->render("deck.html.twig", $data);
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
 
-    #[Route("/card/deck/shuffle", name:"shuffle")]
+    #[Route("/api/deck/shuffle", name:"api_shuffle")]
     public function shuffle(): Response {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -150,11 +158,16 @@ class ReportController extends AbstractController
             "deck" => $deck->deck
         ];
 
-        return $this->render("shuffle.html.twig", $data);
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
 
-    #[Route("card/deck/shuffle/reset")]
-    public function reset_shuffle(): Response {
+    #[Route("api/deck/reset", name:"api_reset")]
+    public function reset_shuffle(): JsonResponse {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
@@ -165,31 +178,18 @@ class ReportController extends AbstractController
         $session->set("deck", $deck);
 
         $data = [
-            "session" => $session,
             "deck" => $deck->deck
         ];
 
-        return $this->redirect("../shuffle");
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
 
-    #[Route("card/deck/newDeckRedirect", name:"newDeckRedirect", methods:["POST"])]
-    public function newDeckRedirect(Request $request): Response {
-        $checkbox = $request->request->get("shfl");
-        if ($checkbox) {
-            $deck = new DeckOfCards;
-            $session = $request->getSession();
-            $session->set("deck", $deck);
-            return $this->redirect("shuffle/reset");
-        }
-        else {
-            $deck = new DeckOfCards;
-            $session = $request->getSession();
-            $session->set("deck", $deck);
-            return $this->redirect("../deck");
-        }
-    }
-
-    #[Route("card/deck/draw", name:"draw")]
+    #[Route("api/deck/draw", name:"api_draw")]
     public function draw(Request $request): Response {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -213,10 +213,16 @@ class ReportController extends AbstractController
             "deck" => $deck->deck
         ];
 
-        return $this->render("draw.html.twig", $data);
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
     
-    #[Route("card/deck/draw/{number}", name:"drawnum")]
+    #[Route("api/deck/draw/{number}", name:"api_drawnum")]
     public function drawnum(Request $request, int $number=1): Response {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -239,9 +245,14 @@ class ReportController extends AbstractController
         $data = [
             "cards" => $cards,
             "length" => $cardCount,
-            "deck" => $deck->deck
+            "deck" => $deck
         ];
 
-        return $this->render("draw.html.twig", $data);
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
     }
 }
