@@ -1,8 +1,11 @@
+html {
+    font-size: 100%;
+}
+
 body {
     background-color: skyblue;
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 100%;
 }
 
 body a {
@@ -30,7 +33,7 @@ h1, h3 {
 
 header {
     font-family: 'Times New Roman', Times, serif;
-    padding: 20px;
+    padding: 2rem;
     font-size: 2rem;
     display: flex;
     flex-direction: column;
@@ -134,8 +137,8 @@ footer {
 .gitDiv .leftCol {
     width: calc(24/12 * 100%);
     min-height: 100%;
-    padding-right: 20px;
-    padding-left: 5px;
+    padding-right: 2rem;
+    padding-left: 0.5rem;
     border-right: 2px solid white;
 }
 
@@ -146,12 +149,12 @@ footer {
 
 .randImg {
     height: 500px;
-    margin-bottom: 20px;
+    margin-bottom: 2rem;
 }
 
 .randomizeLucky {
     background-color: rgba(124, 255, 255, 0.863);
-    font-size: 25px;
+    font-size: 2.5rem;
     outline: 2px white solid;
     text-decoration: none;
 }
@@ -191,42 +194,42 @@ footer {
 }
 
 .large {
-    font-size: 60px;
+    font-size: 6rem;
     transition: font-size 1s, background-color 1s;
     background-color: white;
 }
 
 .small {
-    font-size: 20px;
+    font-size: 2rem;
     transition: font-size 1s, background-color 1s;
     background-color: black;
 }
 
 .♥️ {
     color: red;
-    font-size: 80px;
+    font-size: 8rem;
 }
 
 .♦️ {
     color: red;
-    font-size: 80px; 
+    font-size: 8rem; 
 }
 
 .♣️ {
     color: black;
-    font-size: 80px;
+    font-size: 8rem;
 }
 
 .♠️ {
     color: black;
-    font-size: 80px;
+    font-size: 8rem;
 }
 
 .drawnCardsDiv {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 500px;
+    min-height: 50rem;
 }
 
 .cardResetFieldset {
@@ -243,7 +246,7 @@ footer {
     color: #004085;
     background-color: #cce5ff;
     border-color: #b8daff;
-    max-width: 400px;
+    max-width: 40rem;
 }
 
 .flash-notice:before {

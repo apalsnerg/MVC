@@ -22,14 +22,13 @@ class DeckOfCards
     }
 
     /**
-     * Method to echo all cards with linebreaks in browser. Used for debugging.
+     * Method to return the deck of cards.
+     * 
+     * @return array An array of all the contained cards.
      */
-    public function echoAll()
+    public function returnAllCards()
     {
-        foreach ($this->deck as $card) {
-            echo $card;
-            echo "<hr>";
-        }
+        return $this->deck;
     }
 
     /**
@@ -54,7 +53,7 @@ class DeckOfCards
                 $randomCardIdx = random_int(0, $maxIdx - 1);
                 $returns[] = $this->deck[$randomCardIdx];
                 unset($this->deck[$randomCardIdx]);
-                $this->deck = array_values($this->deck);
+                $this->deck = array_values($this->deck); # Update indexes
             } elseif ($maxIdx == 1) {
                 $returns[] = $this->deck[0];
                 unset($this->deck[0]);

@@ -22,6 +22,6 @@ To clone this GIT repo, perform the following steps:
 -*- HOW TO RUN THE WEBSITE -*-
 
 Here are some recommendations on how you might run this website as a web service in your browser.
-1. First navigate to the root directory of the website files.
-2. If your device has Python3 installed, you can run the command "python3 -m http.server {PORT}".
-3. If your device has PHP installed, you can run the command "php -S localhost:{PORT} -t public".
+1. Make sure you have the latest version of PHP installed.
+2. Navigate to the root directory of the website files.
+3. Run the command "php -S localhost:{PORT} -t public".
