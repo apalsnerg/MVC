@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | Börja spelet{% endblock %}
+
+{% block body %}
+<main class="main">
+    <h2>Kortspelet 21</h2>
+    <p class="gameIntroText">
+        Kortspelet 21 är ett enkelt men engagerande kortspel där målet är att dra kort
+        tills dess att man når så nära som möjligt - men aldrig överskrider - 21 poäng.
+        Spelet utförs gentemot "banken", som fungerar som motståndare. Banken, liksom
+        spelaren, drar också kort för att komma så nära 21 som möjligt, men förlorar
+        också om denna gräns överskrides.
+    </p>
+    <hr>
+    <h3>REGLER</h3>
+    <div class="rulesDiv">
+        <ol>
+            <li>
+                Varje spelare får dra ett godtyckligt antal kort tills dess att de väljer
+                att sluta dra, eller når 21 eller högre.
+            </li
+            <li>
+                Spelaren vars poäng är närmast 21 men under 22 vinner.
+            </li>
+            <li>
+                Banken vinner alltid om den når 21 poäng.
+            </li>
+            <li>
+                Varje kort är värt sitt nummer i poäng, förutom ess, som kan användas som antingen 1 eller 11.
+                Knekt, Drottning, och Kung är värda 10 poäng.
+            </li>
+        </ol>
+    </div>
+    <hr>
+    <div class="gameSelect">
+        <a href="{{ path('game') }}" class="">
+            <button class="button">Starta spelet</button>
+        </a>
+        <a href="{{ path('gamedocs') }}" class="">
+            <button class="button">Läs Dokumentation</button>
+        </a>
+    </div>
+</main>
+{% endblock %}

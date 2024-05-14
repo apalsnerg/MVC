@@ -7,7 +7,7 @@
 <div class="twoColLayout">
     <aside class="leftCol">
         <h3 id="table">Innehållsförteckning</h3>
-        <ul>
+        <ul class="tableList">
             <li><a href="#kmom01">kmom01</a></li>
             <li><a href="#kmom02">kmom02</a></li>
             <li><a href="#kmom03">kmom03</a></li>
@@ -117,11 +117,13 @@
     
     <hr>
 
-    <div>
+    <div class="kmom kmom02" id="kmom02">
+        <h3>Kmom02</h3>
         <p>
             Förklara kort de objektorienterade konstruktionerna arv,
             komposition, interface och trait och hur de används i PHP.
-            <br>
+        </p>
+        <p>
             Det sägs att en klass ärver från en annan när den skapas med den
             andra klassen som mall. Det är alltså ett sätt att samla attribut
             och metoder som är gemensamma för ett antal nya klasser du täntke
@@ -159,7 +161,8 @@
             Berätta om din implementation från uppgiften. Hur löste du
             uppgiften, är du nöjd/missnöjd, vilken förbättringspotential
             ser du i din koden och dina klasser?
-            <br>
+        </p>
+        <p>
             Jag är för det mesta nöjd med mina lösningar. Jag valde att låta
             min Card-klass vara det som uppfyllde arvskravet, i likhet med
             GraphicDice-exemplet från övningarna. GraphicCard fick
@@ -169,7 +172,8 @@
             för att returnera sina innehåll. DeckOfCards innehåller även
             metoder för att använda PHPs inbyggda shuffle() för att blanda
             kortleken samt draw() som sparar, tar bort, och sedan returnerar
-            ett kort från kortleken.
+            ett kort från kortleken. Komposition uppfylldes, som antogs i
+            instruktionstexten, både av DeckOfCards och CardHand.
             <br>
             Vad gäller förbättringspotential vill jag senare implementera en
             metod för GraphicCard att returnera en UTF8-karaktär för dess
@@ -192,7 +196,8 @@
         <p>
             Vilka är dina reflektioner så här långt med att
             jobba i Symfony med applikationskod enligt MVC?
-            <br>
+        </p>
+        <p>
             Det har varit väldigt trevligt att jobba med Symfony. Det var lite
             förvirrande till att börja med men jag har blivit väldigt bekväm
             med det hela, trots att jag fortfarande inte lyckats lära mig
@@ -205,7 +210,8 @@
         <br>
         <p>
             Vilken är din TIL för detta kmom?
-            <br>
+        </p>
+        <p>
             TIL att min vanliga strategi vad gäller programmering, det vill
             säga "kör på tills något går sönder och studera sen vad du gjorde
             fel", inte fungerade alls lika bra som det brukar när jag jobbade

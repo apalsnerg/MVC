@@ -1,0 +1,81 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | Kortspelet 21{% endblock %}
+
+{% block body %}
+<main>
+    <h1>Kortspeletpelet 21</h1>
+    <div class="gameSpace">
+        {% if card is not null %}
+            <h2>Du drog {{ card[0] }}</h2>
+        {% endif %}
+        <div class="playSpace">
+            <div class="playerSpace">
+                <h3>Spelare 1 - {{ player1points }} poäng</h3>
+                <div class="cardSpace">
+                {% for card in player1 %}
+                    <span>{{ card }}</span>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="bankSpace">
+                <h3>Banken - {{ bankpoints }} poäng</h3>
+                <div class="cardSpace">
+                {% for card in bank %}
+                    <span>{{ card }}</span>
+                {% endfor %}
+                </div>
+        </div>
+        
+    </div>
+    <div class="victoryDiv">
+        {% if done == true %}
+            {% if victor == "player"%}
+                <h3>Grattis! Du vann!</h3>
+            {% elseif victor == "bank" %}
+                <h3>Tyvärr! Du förlorade!</h3>
+            {% else %}
+                <h3>Varken du eller banken vann!</h3>
+            {% endif %}
+                <a href="{{ path('gamestart') }}">Spela igen?</a>
+        {% endif %}
+    </div>
+    <hr>
+    {% if turn == 0 %}
+    <div class="formsDiv">
+        <div class="drawDiv">
+            {% if player1points < 21 and ace != true %}
+        <form method="post" action="{{ path('gameEval') }}">
+            <button type="submit" class="button" name="id" class="button" value="draw">
+                Dra ett till kort
+            </button>
+        </form>
+            {% endif %}
+        </div>
+        {% if ace and turn == 0 %}
+            <div>
+                <form method="post" action="{{ path('gameEval') }}">
+                    <button type="submit" class="button" name="id" class="button" value="acehigh">
+                        Räkna som 11
+                    </button>
+                </form>
+            </div>
+            <div>
+                <form method="post" action="{{ path('gameEval') }}">
+                    <button type="submit" class="button" name="id" class="button" value="acelow">
+                        Räkna som 1
+                    </button>
+                </form>
+            </div>
+        {% endif %}
+        <div class="drawDiv">
+        <form method="post" action="{{ path('gameEval') }}">
+            <button type="submit" class="button" name="id" class="button" value="fold">
+                Lägg dig
+            </button>
+        </form>
+        </div>
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

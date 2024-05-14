@@ -5,7 +5,6 @@ namespace App\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -13,25 +12,30 @@ use Symfony\Component\Routing\RouterInterface;
 class ReportController extends AbstractController
 {
 
-    #[Route("/", name: "home")]
-    public function home(): Response
+    #[Route("/", name: "home", methods: ['GET', 'HEAD'])]
+    public function home(RouterInterface $router): Response
     {
-        return $this->render("home.html.twig");
+        $routes = $router->getRouteCollection();
+        $data = [
+            "routes" => $routes
+        ];
+
+        return $this->render("home.html.twig", $data);
     }
 
-    #[Route("/about", name: "about")]
+    #[Route("/about", name: "about", methods: ['GET'])]
     public function about(): Response
     {
         return $this->render("about.html.twig");
     }
 
-    #[Route("/report", name: "report")]
+    #[Route("/report", name: "report", methods: ['GET'])]
     public function report(): Response
     {
         return $this->render("report.html.twig");
     }
 
-    #[Route("/lucky", name:"lucky")]
+    #[Route("/lucky", name:"lucky", methods: ['GET'])]
     public function lucky(): Response
     {
         $number = random_int(0, 100);
@@ -45,7 +49,7 @@ class ReportController extends AbstractController
         return $this->render("lucky.html.twig", $data);
     }
 
-    #[Route("/session", name:"session")]
+    #[Route("/session", name:"session", methods: ['GET'])]
     public function sesh(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -64,7 +68,7 @@ class ReportController extends AbstractController
         return $this->render("session.html.twig", $data);
     }
 
-    #[Route("/destroy", name:"destroy")]
+    #[Route("/destroy", name:"destroy", methods: ['GET'])]
     public function seshdestroy(Request $request): Response
     {
         $session = $request->getSession();

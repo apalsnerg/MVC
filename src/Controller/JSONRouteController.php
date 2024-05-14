@@ -7,7 +7,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
@@ -15,7 +14,7 @@ use Symfony\Component\Routing\RouterInterface;
 class JSONRouteController extends AbstractController
 {
 
-    #[Route("/api", name: "api")]
+    #[Route("/api", name: "api", methods: ['GET'])]
     public function api(RouterInterface $router): Response
     {
         $routes = $router->getRouteCollection();
@@ -26,8 +25,8 @@ class JSONRouteController extends AbstractController
         return $this->render("api.html.twig", $data);
     }
 
-    #[Route("/api/quote", name: "api_quote")]
-    public function quote(): Response
+    #[Route("/api/quote", name: "api_quote", methods: ['GET'])]
+    public function quote(): JsonResponse
     {
         $quotes = 
         [
@@ -49,15 +48,13 @@ class JSONRouteController extends AbstractController
         ];
 
         $response = new JsonResponse($data);
-        $response->setEncodingOptions(
-            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
-        );
+        $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
         
         return $response;
     }
 
-    #[Route("api/session", name:"api_session")]
-    public function sesh(): Response
+    #[Route("api/session", name:"api_session", methods: ['GET'])]
+    public function sesh(): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -80,7 +77,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/destroy", name:"api_destroy")]
+    #[Route("api/destroy", name:"api_destroy", methods: ['GET'])]
     public function seshdestroy(Request $request): Response
     {
         $session = $request->getSession();
@@ -94,8 +91,8 @@ class JSONRouteController extends AbstractController
         return $this->redirect("../api");
     }
 
-    #[Route("api/deck", name:"api_deck")]
-    public function deck(): Response
+    #[Route("api/deck", name:"api_deck", methods: ['GET'])]
+    public function deck(): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -122,8 +119,8 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name:"api_shuffle")]
-    public function shuffle(): Response
+    #[Route("/api/deck/shuffle", name:"api_shuffle", methods: ['GET'])]
+    public function shuffle(): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
@@ -159,7 +156,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/reset", name:"api_reset")]
+    #[Route("api/deck/reset", name:"api_reset", methods: ['GET'])]
     public function resetShuffle(): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -168,7 +165,6 @@ class JSONRouteController extends AbstractController
         }
 
         $deck = new DeckOfCards();
-        $deck->shuffle();
         $session->set("deck", $deck);
 
         $data = [
@@ -183,8 +179,8 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/draw", name:"api_draw")]
-    public function draw(Request $request): Response
+    #[Route("api/deck/draw", name:"api_draw", methods: ['GET'])]
+    public function draw(Request $request): JsonResponse
     {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -216,8 +212,8 @@ class JSONRouteController extends AbstractController
         return $response;
     }
     
-    #[Route("api/deck/draw/{number}", name:"api_drawnum")]
-    public function drawnum(Request $request, int $number = 1): Response
+    #[Route("api/deck/draw/{number}", name:"api_drawnum", methods: ['GET'])]
+    public function drawnum(Request $request, int $number = 1): JsonResponse
     {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {

@@ -1,9 +1,13 @@
+* {
+    color:white;
+}
+
 html {
     font-size: 100%;
 }
 
 body {
-    background-color: skyblue;
+    background-color: #145a76;
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
@@ -14,7 +18,7 @@ body a {
 
 main {
     margin: 0 auto;
-    background-color: rgb(118, 199, 231);
+    background-color: #145a76;
     font-size: 1.4rem;
     color: white;
     max-width: 80%;
@@ -31,6 +35,10 @@ h1, h3 {
     font-family: 'Times New Roman', Times, serif;
 }
 
+h3 {
+    text-decoration: underline;
+}
+
 header {
     font-family: 'Times New Roman', Times, serif;
     padding: 2rem;
@@ -39,8 +47,13 @@ header {
     flex-direction: column;
     justify-content: center;
     border-bottom: 2px solid bisque;
+    color: white;
     text-align: center;
-    background: linear-gradient(azure, skyblue) !important;
+    background: linear-gradient(skyblue, #145a76) !important;
+}
+
+a {
+    text-decoration: none;
 }
 
 .siteTitle {
@@ -70,6 +83,7 @@ footer {
     min-height: 20rem;
     padding-top: 1.6rem;
     font-size: 1.2rem;
+    color: white;
 }
 
 .meFigure {
@@ -119,6 +133,12 @@ footer {
     color: white;
 }
 
+.tableList a {
+    text-decoration: underline;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .rightCol {
     width: calc(24/2 * 100%);
     min-height: 100%;
@@ -145,6 +165,11 @@ footer {
 .gitDiv .rightCol {
     width: calc(24/12 * 100%);
     min-height: 100%;
+}
+
+.gitDiv a {
+    text-decoration: underline;
+    font-size: 1.8rem;
 }
 
 .randImg {
@@ -251,4 +276,55 @@ footer {
 
 .flash-notice:before {
     content: "ⓘ";
+}
+
+.rulesDiv {
+    text-align: left;
+}
+
+.docBody {
+    outline: 2px dotted white;
+    text-align: left;
+}
+
+.docBody > h2, h3 {
+    text-align: center;
+}
+
+.playSpace {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.playerSpace, .bankSpace {
+    min-width: 33%;
+}
+
+.cardSpace {
+    border-left: 2px solid white;
+    border-right: 2px solid white;
+}
+
+.formsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.button {
+    background-color: rgb(36, 54, 47);
+    font-size: 2rem;
+    color: white;
+    outline: 1px solid white;
+}
+
+.gameIntroText {
+    text-align: left;
+}
+
+.gameSelect {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }

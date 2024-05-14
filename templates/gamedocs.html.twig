@@ -1,0 +1,41 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks Sida | MVC | Dokumentation{% endblock %}
+
+{% block body %}
+    <main>
+        <div class="docBody">
+            <h2>Dokumentation för utveckling av 21</h2>
+            <h3>Nödvändiga klasser</h3>
+            <p>
+                Rent praktiskt finns det inget direkt behov at ytterligare klasser för att uppfylla kravet;
+                lösningen kan göras med existerande Card-klasser och lite logik i våra routes. Detta är ju
+                dock inte särskilt MVC, så vi löser det på annat vis.    
+            </p>
+            <p>
+                Jag tänker mig först och främst att en klass för spelet bör skapas. Den skall inneha
+                medlemsvariabler för spelaren och banken, samt ett DeckOfCards, och det skall finnas
+                logik för att byta till banken när användaren når 21+ och en metod för användaren att sluta sin runda.
+                Att dra kort har vi redan en metod för i DeckOfCards.
+            </p>
+            <p>
+                Det behövs en klass för att utgöra en spelare och en bank-klass som ärver denna. Tanken är att banken behöver ytterligare
+                en metod för att utvärdera huruvida den bör dra eller lägga sig. Till att börja med är det ju bara "om total hand under 17, dra",
+                men den kan utvecklas vidare ifall den mer avancerade "AI"n skapas. I så fall behöver banken även en medlemsvariabel för vilken
+                svårighetsgrad den bör slå.
+            </p>
+            <p>
+                Player-klassen behöver då innehålla en medlemsvariabel för att hålla en (ursprungligen tom) CardHand samt en för att säga
+                vilken spelare den är (Player 1, banken, etc). Det finns ju för närvarande ingen tanke på att det skall gå att ha flera spelare,
+                men det kanske är ett framtida utvecklingssteg. En metod skall finnas till som anger hur mycket poäng handen för närvarande har.
+            </p>
+            <p>
+
+            </p>
+            <hr>
+            <p>
+                Sidan med spelet måste ha ett sätt för spelaren att bestämma om den vill ha ess som 11 eller 1
+            </p>
+        </div>
+    </main>
+{% endblock %}

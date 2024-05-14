@@ -31,7 +31,7 @@
         <ul class="apiList">
         {% for route in routes %}
             {% if "api" in route.path %}
-           <li>{{ route.path }} - <a href="{{ route.path }}">quote</a></li>
+           <li>{{ route.path }} - <a href="{{ route.path }}">route</a></li>
            {% endif %}
         {% endfor %}
         </ul>

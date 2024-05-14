@@ -7,14 +7,12 @@ use App\Cards\DeckOfCards;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBag;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Routing\RouterInterface;
 
 class DeckController extends AbstractController
 {
-    #[Route("/card", name:"card")]
+    #[Route("/card", name:"card", methods: ["GET"])]
     public function card(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -35,7 +33,7 @@ class DeckController extends AbstractController
         return $this->render("card.html.twig", $data);
     }
 
-    #[Route("/card/deck", name:"deck")]
+    #[Route("/card/deck", name:"deck", methods: ["GET"])]
     public function deck(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -58,7 +56,7 @@ class DeckController extends AbstractController
         return $this->render("deck.html.twig", $data);
     }
 
-    #[Route("/card/deck/shuffle", name:"shuffle")]
+    #[Route("/card/deck/shuffle", name:"shuffle", methods: ["GET"])]
     public function shuffle(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -90,7 +88,7 @@ class DeckController extends AbstractController
         return $this->render("shuffle.html.twig", $data);
     }
 
-    #[Route("card/deck/shuffle/reset")]
+    #[Route("card/deck/shuffle/reset", name:"cardShuffleReset", methods: ["GET"])]
     public function resetShuffle(): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -109,20 +107,16 @@ class DeckController extends AbstractController
     public function newDeckRedirect(Request $request): Response
     {
         $checkbox = $request->request->get("shfl");
+        $deck = new DeckOfCards;
+        $session = $request->getSession();
+        $session->set("deck", $deck);
         if ($checkbox) {
-            $deck = new DeckOfCards;
-            $session = $request->getSession();
-            $session->set("deck", $deck);
             return $this->redirect("shuffle/reset");
-        } else {
-            $deck = new DeckOfCards;
-            $session = $request->getSession();
-            $session->set("deck", $deck);
-            return $this->redirect("../deck");
         }
+        return $this->redirect("../deck");
     }
 
-    #[Route("card/deck/draw", name:"draw")]
+    #[Route("card/deck/draw", name:"draw", methods: ["GET"])]
     public function draw(Request $request): Response
     {
 
@@ -150,7 +144,7 @@ class DeckController extends AbstractController
         return $this->render("draw.html.twig", $data);
     }
     
-    #[Route("card/deck/draw/{number}", name:"drawnum")]
+    #[Route("card/deck/draw/{number}", name:"drawnum", methods: ["GET"])]
     public function drawnum(Request $request, int $number = 1): Response
     {
 
