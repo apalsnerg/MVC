@@ -12,7 +12,7 @@ use Symfony\Component\Routing\RouterInterface;
 class ReportController extends AbstractController
 {
     #[Route("/", name: "home", methods: ['GET', 'HEAD'])]
-    public function home(RouterInterface $router, Request $request): Response
+    public function home(RouterInterface $router): Response
     {
         $routes = $router->getRouteCollection();
         $data = [
@@ -23,19 +23,19 @@ class ReportController extends AbstractController
     }
 
     #[Route("/about", name: "about", methods: ['GET'])]
-    public function about(Request $request): Response
+    public function about(): Response
     {
         return $this->render("about.html.twig");
     }
 
     #[Route("/report", name: "report", methods: ['GET'])]
-    public function report(Request $request): Response
+    public function report(): Response
     {
         return $this->render("report.html.twig");
     }
 
     #[Route("/lucky", name:"lucky", methods: ['GET'])]
-    public function lucky(Request $request): Response
+    public function lucky(): Response
     {
         $number = random_int(0, 100);
         $randImg = random_int(1, 12);

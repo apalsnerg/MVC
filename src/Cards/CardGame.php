@@ -51,5 +51,4 @@ class CardGame
         }
         return "player";
     }
-
 }

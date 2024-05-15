@@ -21,207 +21,293 @@
     <div class="rightCol">
         <h1>Välkommen till report-sidan</h1>
         <div class="kmom kmom01" id="kmom01">
+        <h2 class="upArrow"><a href="#table">↑</a></h2>
         <h3>Kmom01</h3>
-        <p>
-            Berätta kort om dina förkunskaper och
-            tidigare erfarenheter kring objektorientering.
-        </p>
-        <p>
-            Vad gäller förkunskaper när det kommer till t.ex. klasser
-            skulle jag säg att jag har en ganska god
-            grundläggande förståelse för hur de fungerar och används.
-            Jag har studerat deras struktur och funktioner mestadels i Python,
-            men också i JavaScript och nu i PHP. När det kommer till direkt
-            erfarenhet så har jag det till stor del huvudsakligen i Python,
-            eftersom vi använde oss av dem flitigt i OOP-kursen. Jag har dock
-            också arbetat med JavaScript-klasser i kursen DATABAS.
-        </p>
-        <br>
-        <p>
-            Berätta kort om PHPs modell för klasser och objekt.
-            Vilka är de grunder man behöver veta/förstå för att
-            kunna komma igång och skapa sina första klasser?
-        </p>
-        <p>
-            En klass i PHP fungerar i princip som en mall, från vilka man kan
-            skapa objekt, eller klassinstanser. Dessa objekt kan vara antingen
-            föränderliga, "mutable", eller oföränderliga, "immutable", beroende
-            på klassen de skapats från; vad jag förstår kan den senare också
-            kallas "readonly", men det är jag inte helt säker på.
-            Ett föränderligt objekt kan fördelas nya metoder, t.ex. genom
-            $foo->bar = function (), och nya medlemsvariabler. Å andra sidan
-            kan ett oföränderligt objekt inte tilldelas ens nya
-            medlemsvariabler; om den är född av en klass som bara har
-            medlemsvariabeln "age", kan du inte göra t.ex. $foo->height = 184.
-            En annan viktig detalj att ha till minnes är att PHP använder sig
-            av $this som självreferens inuti en klass, och inte t.ex. $self.
-        </p>
-        <br>
-        <p>
-            Reflektera kort över den kodbas, koden, strukturen som användes
-            till uppgiften me/report, hur uppfattar du den?
-        </p>
-        <p>
-            Till att börja med var det någorlunda överväldigande med alla
-            directories och filer som genererades när man först instantierade
-            Symfony, men nu efterhand så är det inte alls lika läskigt längre.
-            Strukturen för de olika mapparna är begripligt logiska när man
-            väl suttit och tänkt igenom det ett tag. Något som jag dock inte
-            riktigt har greppat ännu är var exakt man skall lägga till nya
-            filer; till exempel skapade jag en ny mapp direkt i assets för
-            att innehålla den JSON jag tänkte använda för /lucky-sidan. Om det
-            finns något särskilt ställe den bör vara istället så har jag
-            ingen aning. Något jag inte häller verkar begripa är hur
-            man ska läsa in JSON direkt i PHP i routerna; jag försökte
-            ideligen men det blev ett filepath-error hela tiden. Månne
-            vi lär oss hur man gör't senare i kursen.
-        </p>
-        <br>
-        <p>
-            Med tanke på artikeln “PHP The Right Way”,
-            vilka delar in den finner du extra intressanta och värdefulla?
-            Är det några särskilda områden
-            som du känner att du vill veta mer om?
-            Lyft fram några delar av artikeln som du känner mer värdefulla.
-        </p>
-        <p>
-            En av de absolut viktigaste delarna skulle jag säga är avsnittet om
-            att "escape"-a när man kör SQL med användarinput. Det är något som
-            lätt kan överskådas men som lika lätt kan utgöra en av de mest
-            förgörande farhågorna för ens databas och system i helhet.
-            Det jag tycker är särskilt intressant och som jag definitivt vill
-            fokusera mer tid på att studera är delen om säkerhet. Cybersäkerhet
-            är ett område jag tycker är extremt fascinerande, och något jag till
-            och med skulle kunna tänka mig att arbeta med i framtiden. Det må
-            förvisso förändras när jag fått mer erfarenhet i det området, och
-            kanske insett att jag inte tycker om det faktiska arbetet, men för
-            närvarande verkar det helt enkelt coolt. Min personliga åsikt är 
-            alltså att de viktigaste aspekten att bli synnerligen kompetent på
-            är hur man skriver säker kod. Multifunktionalitet och QoL kan komma
-            senare, när man försäkrat sig om att användaren, som ju alltid
-            likaså är en kund som en fiende när punkt kommer till pricka, vare
-            sig av oaktsamhet eller ondskefullhet, inte kan förinta allt det
-            man jobbat så hårt för att bygga upp.
-        </p>
-        <br>
-        <p>
-            Vilken är din TIL för detta kmom?
-        </p>
-        <p>
-            TIL att Symfony fungerar något snarlikt Express, och att twig
-            är snarlikt ejs-filer, vilket är en fantastisk lättnad. Det är
-            mycket enklare att handskas med ny teknologi när man iallafall
-            kan känna igen sig någonstans.
-        </p>
+        <div class="reviewText">
+            <h4>
+                Berätta kort om dina förkunskaper och
+                tidigare erfarenheter kring objektorientering.
+            </h4>
+            <p>
+                Vad gäller förkunskaper när det kommer till t.ex. klasser
+                skulle jag säg att jag har en ganska god
+                grundläggande förståelse för hur de fungerar och används.
+                Jag har studerat deras struktur och funktioner mestadels i Python,
+                men också i JavaScript och nu i PHP. När det kommer till direkt
+                erfarenhet så har jag det till stor del huvudsakligen i Python,
+                eftersom vi använde oss av dem flitigt i OOP-kursen. Jag har dock
+                också arbetat med JavaScript-klasser i kursen DATABAS.
+            </p>
+            <br>
+            <h4>
+                Berätta kort om PHPs modell för klasser och objekt.
+                Vilka är de grunder man behöver veta/förstå för att
+                kunna komma igång och skapa sina första klasser?
+            </h4>
+            <p>
+                En klass i PHP fungerar i princip som en mall, från vilka man kan
+                skapa objekt, eller klassinstanser. Dessa objekt kan vara antingen
+                föränderliga, "mutable", eller oföränderliga, "immutable", beroende
+                på klassen de skapats från; vad jag förstår kan den senare också
+                kallas "readonly", men det är jag inte helt säker på.
+                Ett föränderligt objekt kan fördelas nya metoder, t.ex. genom
+                $foo->bar = function (), och nya medlemsvariabler. Å andra sidan
+                kan ett oföränderligt objekt inte tilldelas ens nya
+                medlemsvariabler; om den är född av en klass som bara har
+                medlemsvariabeln "age", kan du inte göra t.ex. $foo->height = 184.
+                En annan viktig detalj att ha till minnes är att PHP använder sig
+                av $this som självreferens inuti en klass, och inte t.ex. $self.
+            </p>
+            <br>
+            <h4>
+                Reflektera kort över den kodbas, koden, strukturen som användes
+                till uppgiften me/report, hur uppfattar du den?
+            </h4>
+            <p>
+                Till att börja med var det någorlunda överväldigande med alla
+                directories och filer som genererades när man först instantierade
+                Symfony, men nu efterhand så är det inte alls lika läskigt längre.
+                Strukturen för de olika mapparna är begripligt logiska när man
+                väl suttit och tänkt igenom det ett tag. Något som jag dock inte
+                riktigt har greppat ännu är var exakt man skall lägga till nya
+                filer; till exempel skapade jag en ny mapp direkt i assets för
+                att innehålla den JSON jag tänkte använda för /lucky-sidan. Om det
+                finns något särskilt ställe den bör vara istället så har jag
+                ingen aning. Något jag inte häller verkar begripa är hur
+                man ska läsa in JSON direkt i PHP i routerna; jag försökte
+                ideligen men det blev ett filepath-error hela tiden. Månne
+                vi lär oss hur man gör't senare i kursen.
+            </p>
+            <br>
+            <h4>
+                Med tanke på artikeln “PHP The Right Way”,
+                vilka delar in den finner du extra intressanta och värdefulla?
+                Är det några särskilda områden
+                som du känner att du vill veta mer om?
+                Lyft fram några delar av artikeln som du känner mer värdefulla.
+            </h4>
+            <p>
+                En av de absolut viktigaste delarna skulle jag säga är avsnittet om
+                att "escape"-a när man kör SQL med användarinput. Det är något som
+                lätt kan överskådas men som lika lätt kan utgöra en av de mest
+                förgörande farhågorna för ens databas och system i helhet.
+                Det jag tycker är särskilt intressant och som jag definitivt vill
+                fokusera mer tid på att studera är delen om säkerhet. Cybersäkerhet
+                är ett område jag tycker är extremt fascinerande, och något jag till
+                och med skulle kunna tänka mig att arbeta med i framtiden. Det må
+                förvisso förändras när jag fått mer erfarenhet i det området, och
+                kanske insett att jag inte tycker om det faktiska arbetet, men för
+                närvarande verkar det helt enkelt coolt. Min personliga åsikt är 
+                alltså att de viktigaste aspekten att bli synnerligen kompetent på
+                är hur man skriver säker kod. Multifunktionalitet och QoL kan komma
+                senare, när man försäkrat sig om att användaren, som ju alltid
+                likaså är en kund som en fiende när punkt kommer till pricka, vare
+                sig av oaktsamhet eller ondskefullhet, inte kan förinta allt det
+                man jobbat så hårt för att bygga upp.
+            </p>
+            <br>
+            <h4>
+                Vilken är din TIL för detta kmom?
+            </h4>
+            <p>
+                TIL att Symfony fungerar något snarlikt Express, och att twig
+                är snarlikt ejs-filer, vilket är en fantastisk lättnad. Det är
+                mycket enklare att handskas med ny teknologi när man iallafall
+                kan känna igen sig någonstans.
+            </p>
+        </div>
     </div>
     
     <hr>
 
     <div class="kmom kmom02" id="kmom02">
+        <h2 class="upArrow"><a href="#table">↑</a></h2>
         <h3>Kmom02</h3>
-        <p>
-            Förklara kort de objektorienterade konstruktionerna arv,
-            komposition, interface och trait och hur de används i PHP.
-        </p>
-        <p>
-            Det sägs att en klass ärver från en annan när den skapas med den
-            andra klassen som mall. Det är alltså ett sätt att samla attribut
-            och metoder som är gemensamma för ett antal nya klasser du täntke
-            skapa. Utifrån det grundläggande konceptet av en bil, till exempel,
-            kan du skapa en monstertruck, en limousin, en långtradare, med mera
-            Dessa har gemensamma attribut, t.ex. motorer, hjul, och växlar,
-            som kan samlas i en enda klass och sedan ärvas av resten,
-            vilket leder till modulär och DRY kod.
-
-            Komposition betecknar helt enkelt att den klass är beroende
-            av en annan för att existera. Till exempel kan du inte ha
-            en kortlek som inte har några kort i sig; en kortlek ÄR en
-            samling kort, och utan kort så existerar inte leken.
-
-            Interface fungerar ungefär som en innehållsförteckning.
-            Det beskriver helt enkelt de metoder som användaren kan
-            förvänta sig skall finnas i en klass. Det finns ingen
-            egentlig kod i ett interface; det fungerar enbart
-            som ett krav för var som måste implementeras i klassen.
-
-            Trait är likt arv, men på sätt och vis motsatsen av ett arv.
-            Emedan arv betyder att du skapar en klass ur en klass, betyder
-            trait att du agglutinerar en grupp metoder till en klass.
-            Det fungerar som en kringgång av det faktum att PHP inte
-            tillåter multipla arv; istället för att skapa ur, lägger man till.
-            För att ge ett exempel kan du tänka dig en grundklass Cykel, som
-            din underklass Mountainbike ärver från. Om du sedan vill skapa en
-            motordriven Mountainbike, kan din Mountainbike använda ett
-            Motor-trait. Alltså ärver du ur cykel och använder Motor
-            för att få en Mountainbike som också har Motor-metoder.
-        
-        </p>
-        <br>
-        <p>
-            Berätta om din implementation från uppgiften. Hur löste du
-            uppgiften, är du nöjd/missnöjd, vilken förbättringspotential
-            ser du i din koden och dina klasser?
-        </p>
-        <p>
-            Jag är för det mesta nöjd med mina lösningar. Jag valde att låta
-            min Card-klass vara det som uppfyllde arvskravet, i likhet med
-            GraphicDice-exemplet från övningarna. GraphicCard fick
-            ärva en constructor och två medlemsvariabler för att representera
-            dess värde och svit, och fick två metoder för att återge dessa.
-            CardHand och DeckOfCards innehåller GraphicCards och har metoder
-            för att returnera sina innehåll. DeckOfCards innehåller även
-            metoder för att använda PHPs inbyggda shuffle() för att blanda
-            kortleken samt draw() som sparar, tar bort, och sedan returnerar
-            ett kort från kortleken. Komposition uppfylldes, som antogs i
-            instruktionstexten, både av DeckOfCards och CardHand.
+        <div class="reviewText">
+            <h4>
+                Förklara kort de objektorienterade konstruktionerna arv,
+                komposition, interface och trait och hur de används i PHP.
+            </h4>
+            <p>
+                Det sägs att en klass ärver från en annan när den skapas med den
+                andra klassen som mall. Det är alltså ett sätt att samla attribut
+                och metoder som är gemensamma för ett antal nya klasser du täntke
+                skapa. Utifrån det grundläggande konceptet av en bil, till exempel,
+                kan du skapa en monstertruck, en limousin, en långtradare, med mera
+                Dessa har gemensamma attribut, t.ex. motorer, hjul, och växlar,
+                som kan samlas i en enda klass och sedan ärvas av resten,
+                vilket leder till modulär och DRY kod.
+    
+                Komposition betecknar helt enkelt att den klass är beroende
+                av en annan för att existera. Till exempel kan du inte ha
+                en kortlek som inte har några kort i sig; en kortlek ÄR en
+                samling kort, och utan kort så existerar inte leken.
+    
+                Interface fungerar ungefär som en innehållsförteckning.
+                Det beskriver helt enkelt de metoder som användaren kan
+                förvänta sig skall finnas i en klass. Det finns ingen
+                egentlig kod i ett interface; det fungerar enbart
+                som ett krav för var som måste implementeras i klassen.
+    
+                Trait är likt arv, men på sätt och vis motsatsen av ett arv.
+                Emedan arv betyder att du skapar en klass ur en klass, betyder
+                trait att du agglutinerar en grupp metoder till en klass.
+                Det fungerar som en kringgång av det faktum att PHP inte
+                tillåter multipla arv; istället för att skapa ur, lägger man till.
+                För att ge ett exempel kan du tänka dig en grundklass Cykel, som
+                din underklass Mountainbike ärver från. Om du sedan vill skapa en
+                motordriven Mountainbike, kan din Mountainbike använda ett
+                Motor-trait. Alltså ärver du ur cykel och använder Motor
+                för att få en Mountainbike som också har Motor-metoder.
+            
+            </p>
             <br>
-            Vad gäller förbättringspotential vill jag senare implementera en
-            metod för GraphicCard att returnera en UTF8-karaktär för dess
-            innehåll, alltså att den ska kunna returnera t.ex. 🂡 om den har ess
-            som värde och spader som svit. Det enklaste sättet är troligtvis
-            att implementera en key-value array och en metod för att
-            plocka ut rätt karaktär beroende på kortets graphic() och sedan
-            returnera det matchande värdet. Dessutom vill jag separera alla
-            mina if session_status() till en separat funktion som kan kolla
-            sessionsstatusen, och också låta den också skapa en ny deck om man
-            har med det som argument. Det skulle göra det hela mycket mer DRY.
+            <h4>
+                Berätta om din implementation från uppgiften. Hur löste du
+                uppgiften, är du nöjd/missnöjd, vilken förbättringspotential
+                ser du i din koden och dina klasser?
+            </h4>
+            <p>
+                Jag är för det mesta nöjd med mina lösningar. Jag valde att låta
+                min Card-klass vara det som uppfyllde arvskravet, i likhet med
+                GraphicDice-exemplet från övningarna. GraphicCard fick
+                ärva en constructor och två medlemsvariabler för att representera
+                dess värde och svit, och fick två metoder för att återge dessa.
+                CardHand och DeckOfCards innehåller GraphicCards och har metoder
+                för att returnera sina innehåll. DeckOfCards innehåller även
+                metoder för att använda PHPs inbyggda shuffle() för att blanda
+                kortleken samt draw() som sparar, tar bort, och sedan returnerar
+                ett kort från kortleken. Komposition uppfylldes, som antogs i
+                instruktionstexten, både av DeckOfCards och CardHand.
+                <br>
+                Vad gäller förbättringspotential vill jag senare implementera en
+                metod för GraphicCard att returnera en UTF8-karaktär för dess
+                innehåll, alltså att den ska kunna returnera t.ex. 🂡 om den har ess
+                som värde och spader som svit. Det enklaste sättet är troligtvis
+                att implementera en key-value array och en metod för att
+                plocka ut rätt karaktär beroende på kortets graphic() och sedan
+                returnera det matchande värdet. Dessutom vill jag separera alla
+                mina if session_status() till en separat funktion som kan kolla
+                sessionsstatusen, och också låta den också skapa en ny deck om man
+                har med det som argument. Det skulle göra det hela mycket mer DRY.
+                <br>
+                Om man ska tala om förbättringspotential rent generellt vill
+                jag fortsätta implementera de A11Y-lärdomarna jag fått från
+                WEBAPP för att göra mina sidor mer lättilgängliga och
+                användarvänliga. Men det har ju inte direkt med klasserna
+                att göra.
+            </p>
             <br>
-            Om man ska tala om förbättringspotential rent generellt vill
-            jag fortsätta implementera de A11Y-lärdomarna jag fått från
-            WEBAPP för att göra mina sidor mer lättilgängliga och
-            användarvänliga. Men det har ju inte direkt med klasserna
-            att göra.
-        </p>
-        <br>
-        <p>
-            Vilka är dina reflektioner så här långt med att
-            jobba i Symfony med applikationskod enligt MVC?
-        </p>
-        <p>
-            Det har varit väldigt trevligt att jobba med Symfony. Det var lite
-            förvirrande till att börja med men jag har blivit väldigt bekväm
-            med det hela, trots att jag fortfarande inte lyckats lära mig
-            i vilka mappar och var man bör förvara sina egna filer.
-            Jag föredrar dessutom betydligt att jobba med tvig än rå html,
-            särskilt eftersom man så enkelt kan importera separata moduler
-            som man kan i php-filer. 
+            <h4>
+                Vilka är dina reflektioner så här långt med att
+                jobba i Symfony med applikationskod enligt MVC?
+            </h4>
+            <p>
+                Det har varit väldigt trevligt att jobba med Symfony. Det var lite
+                förvirrande till att börja med men jag har blivit väldigt bekväm
+                med det hela, trots att jag fortfarande inte lyckats lära mig
+                i vilka mappar och var man bör förvara sina egna filer.
+                Jag föredrar dessutom betydligt att jobba med tvig än rå html,
+                särskilt eftersom man så enkelt kan importera separata moduler
+                som man kan i php-filer. 
+    
+            </p>
+            <br>
+            <h4>
+                Vilken är din TIL för detta kmom?
+            </h4>
+            <p>
+                TIL att min vanliga strategi vad gäller programmering, det vill
+                säga "kör på tills något går sönder och studera sen vad du gjorde
+                fel", inte fungerade alls lika bra som det brukar när jag jobbade
+                med GIT. Jag tänkte inte på att det skulle vara så pass
+                permanent, eller iallafall alltför bökigt att fixa tidigare
+                blundrar. Läxa lärd: kanske var lite mindre gung-ho, iallafall
+                med nya teknologier.
+            </p>        
+        </div>
 
-        </p>
-        <br>
-        <p>
-            Vilken är din TIL för detta kmom?
-        </p>
-        <p>
-            TIL att min vanliga strategi vad gäller programmering, det vill
-            säga "kör på tills något går sönder och studera sen vad du gjorde
-            fel", inte fungerade alls lika bra som det brukar när jag jobbade
-            med GIT. Jag tänkte inte på att det skulle vara så pass
-            permanent, eller iallafall alltför bökigt att fixa tidigare
-            blundrar. Läxa lärd: kanske var lite mindre gung-ho, iallafall
-            med nya teknologier.
-        </p>        
+        <hr>
 
+        <div class="kmom kmom03" id="kmom03">
+            <h2 class="upArrow"><a href="#table">↑</a></h2>
+            <h3>Kmom03</h3>
+            <h4>
+                Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod.
+                Var det något som du tror stödjer dig i din problemlösning
+                och tankearbete för att strukturera koden kring en applikation?
+            </h4>
+            <div class="reviewText">
+                <p>
+                    Det kändes väl okej att modellera med flödesdiagram och pseudokod.
+                    Det är dock personligen inte någonting jag tycker hjälper mig särskilt;
+                    mitt arbetssätt liknar snarare att bara börja koda och senare lägga till
+                    funktioner som jag inser behövs. Däremot är det dock någonting som jag ändå
+                    måste lära mig, eftersom det troligtvis kommer vara nödvändigt i mycket större
+                    projekt och i sammanhang där man samarbetar med andra programmerare.
+                    Helt enkelt kan jag modellera bra nog i huvudet och anpassa mig efter det som
+                    senare visar sig behövas.
+                    Däremot så är det nog ovärdeligt när det kommer till att återvända till projekt
+                    eftersom man får en översikt som kan påminna en om hur projektet fungerar.
+                </p>
+            </div>
+            <br>
+            <h4>
+                Berätta om din implementation från uppgiften.
+                Hur löste du uppgiften, är du nöjd/missnöjd,vilken förbättringspotential
+                ser du i din koden, dina klasser och applikationen som helhet?
+            </h4>
+            <div class="reviewText">
+                <p>
+                    Jag är på det stora hela nöjd med min implementering.
+                    De områdena jag kan tänka mig kan förbättras mest är att utveckla spelet vidare
+                    och implementera extrauppgifterna. Det första vore att skapa den svåra
+                    svårighetsgraden, vilket inte borde vara så svårt egentligen.
+                    Man skulle ju till exempel kunna tänka sig att datorn kommer ihåg korten
+                    spelaren har dragit och utvärderar vilken påverkan det har på korten
+                    som den kan dra. Därefter, ifall de andra övriga kraven skulle implementeras,
+                    skulle den ju kunna använda statistiken som instruerat.
+                    Vidare skulle jag vilja trimma ner alla nestade if-satser jag har i min
+                    implementering av spelet och hitta på ett sätt att göra det hela i nya metoder
+                    istället. Till exempel skulle nog bankens runda helt kunna utföras i CardGame
+                    klassen, med metod(er) för att hantera dess runda. Till sist har jag ännu
+                    inte implementerat ett riktigt utseende för korten, vilket jag skulle vilja
+                    göra. Det är ju egentligen bara en fråga om att  ge korten ett nytt attribut
+                    som utgör ett UTF8-spelkort baserat på dess $graphic.
+                </p>
+            </div>
+            <br>
+            <h4>
+                Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?
+            </h4>
+            <div class="reviewText">
+                <p>
+                    Det känns väldigt bra att koda med Symfony. Det har tagit ett tag att vänja
+                    sig vid de annorlunda sätten att göra saker på, t.ex. $session->get("foo")
+                    istället för $_SESSION["foo"], men efter att ha använt det och läst mer
+                    dokumentation så har det hela börja satt sig bättre. Twig är också ett
+                    fantastisk medverktyg, med mer lättförståelig syntax, i min mening.
+                    Det enda negativa är att man inte riktigt kan skriva PHP-kod i twig.html-filen,
+                    men det är ju bara en fråga om att skriva allt i routen.
+                    Hitills är jag dock inte säker på om jag föredrar ren HTML med JS och Node.js
+                    eller PHP och JS. Customelements är mer dynamiska, men twig är mycket mer
+                    "streamlined". Vi får se hur mina smaker utvecklas.
+                </p>
+            </div>
+            <br>
+            <h4>
+                Vilken är din TIL för detta kmom?
+            </h4>
+            <div class="reviewText">
+                <p>
+                    TIL att det är en hel del som bör ingå i dokumentation när det kommer till
+                    linting, och att det som tur är finns ett enormt antal verktyg för att
+                    underlätta det hela. Det kändes irriterande till en början, men det blev
+                    sedan lite intressant att kunna detaljstyra sin kod vad gäller godtagbara
+                    parametrar och dylikt.
+                </p>
+            </div>
+        </div>
     </div>
-</div>
 </main>
 {% endblock %}

@@ -340,3 +340,16 @@ footer {
     height: 650px;
     width: 400px;
 }
+
+.kmom {
+    text-align: left;
+}
+
+.kmom h3, 
+h4 {
+    text-align: center;
+}
+
+.upArrow {
+    float: left;
+}

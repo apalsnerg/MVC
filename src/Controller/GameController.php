@@ -117,7 +117,7 @@ class GameController extends AbstractController
     }
 
     #[Route("gamedocs", name:"gamedocs", methods: ["GET"])]
-    public function gamedocs(Request $request): Response
+    public function gamedocs(): Response
     {
         return $this->render("gamedocs.html.twig");
     }
