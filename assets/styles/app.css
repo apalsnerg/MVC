@@ -285,6 +285,7 @@ footer {
 .docBody {
     outline: 2px dotted white;
     text-align: left;
+    padding: 5px;
 }
 
 .docBody > h2, h3 {
@@ -327,4 +328,15 @@ footer {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.flowchartDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.flowchart {
+    height: 650px;
+    width: 400px;
 }

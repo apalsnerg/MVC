@@ -7,6 +7,7 @@ namespace App\Cards;
  */
 class DeckOfCards
 {
+    /** @var array<string> a list of string representations of playing cards */
     public $deck = [];
 
     public function __construct()
@@ -23,10 +24,10 @@ class DeckOfCards
 
     /**
      * Method to return the deck of cards.
-     * 
-     * @return array An array of all the contained cards.
+     *
+     * @return array<string> An array of all the contained cards.
      */
-    public function returnAllCards()
+    public function returnAllCards(): array
     {
         return $this->deck;
     }
@@ -34,17 +35,17 @@ class DeckOfCards
     /**
      * Method to shuffle all the cards in the deck (randomize indexes).
      */
-    public function shuffle()
+    public function shuffle(): void
     {
         shuffle($this->deck);
     }
 
     /**
      * Draws an amount of cards from the deck and removes it.
-     * 
-     * @return array An array of the random cards.
+     *
+     * @return array<string> An array of the random cards.
      */
-    public function draw($number = 1)
+    public function draw(int $number = 1): array
     {
         $returns = [];
         for ($i = 0; $i < $number && $i < 53; $i++) {
@@ -60,16 +61,16 @@ class DeckOfCards
                 $this->deck = array_values($this->deck);
             }
         }
-        
+
         return $returns;
     }
 
     /**
      * Method to return the amount of cards in the deck.
-     * 
+     *
      * @return integer The amount of cards in the deck.
      */
-    public function getLength()
+    public function getLength(): int
     {
         return count($this->deck);
     }

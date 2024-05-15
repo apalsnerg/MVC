@@ -6,6 +6,10 @@
     <main>
         <div class="docBody">
             <h2>Dokumentation för utveckling av 21</h2>
+            <div class="flowchartDiv">
+                <img src="{{ asset('img/flowchart.drawio.png') }}" alt="flowchart" class="flowchart">
+                <img src="{{ asset('img/uml.drawio.png') }}" alt="uml">  
+            </div>
             <h3>Nödvändiga klasser</h3>
             <p>
                 Rent praktiskt finns det inget direkt behov at ytterligare klasser för att uppfylla kravet;
@@ -30,12 +34,56 @@
                 men det kanske är ett framtida utvecklingssteg. En metod skall finnas till som anger hur mycket poäng handen för närvarande har.
             </p>
             <p>
-
+                Sidan med spelet måste ha ett sätt för spelaren att bestämma, när denne har dragit ett ess, huruvida det skall ge 11 eller 1 poäng.
+                Därutöver måste det finnas ett sätt för Banken att bestämma vilket den bör välja.
             </p>
             <hr>
-            <p>
-                Sidan med spelet måste ha ett sätt för spelaren att bestämma om den vill ha ess som 11 eller 1
-            </p>
+            <h3>Pseudokod</h3>
+            <ol>
+                <li>Draw card and give to player 1
+                <li>If player score 21 or less, present options for hitting or folding
+                <li>If hit,
+                    <ul>
+                        <li>If ace,
+                            <ul>
+                                <li>let player choose 1 or 11 points<lu>
+                                <li>then add card to player hand</li>
+                            </ul>
+                        </li>
+                        <li>Else,
+                            <ul>
+                                <li>add to player, present options again</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>Else if fold
+                    <ul>
+                        <li>switch turn to computer</li>
+                    </ul>
+                </li>
+                <li>If computer's turn,
+                    <ul>
+                        <li>While computer has less points than 18
+                            <ul>
+                                <li>draw card</li>
+                            <li>If ace,
+                                <ul>
+                                    <li>evaluate whether 11 or 1 points is better</li>
+                                </ul>
+                            </li>
+                            <li>Else,
+                                <ul>
+                                    <li>evaluate whether to draw or fold</li>
+                                </ul>
+                            </li>
+                </li>
+                <li>on computer fold
+                    <ul>
+                        <li>calculate victor, present to player</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </main>
 {% endblock %}

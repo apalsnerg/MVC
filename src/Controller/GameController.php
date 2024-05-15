@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Cards\CardGame;
+use App\Cards\DeckOfCards;
+use App\Cards\Bank;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,31 +31,31 @@ class GameController extends AbstractController
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("game")) {
-            $game = new CardGame();
-            $session->set("game", $game);
+            if (!$session->get("game")) {
+                $game = new CardGame();
+                $session->set("game", $game);
+            }
         }
         $session = $request->getSession();
-        $game = $session->get("game");
-        $session = $request->getSession();
+        /** @var CardGame $game */
         $game = $session->get("game");
         $card = null;
         $ace = false;
-        $done = $session->get("done") || false;
+        $done = $session->get("done");
 
         if (!$session->get("ace")) {
             if ($game->turn == 0 && $game->players[0]->score < 22) {
-                $card = $game->deck->draw();
-                if (str_contains($card[0], "A")) {
-                    $ace = true;
-                    $cardObj = $game->players[0]->stringToCard($card[0]);
-                    $game->players[0]->hand->addCard($cardObj);
-                    $session->set("ace", true);
-                } else {
-                    $cardObj = $game->players[0]->stringToCard($card[0]);
-                    $game->players[0]->hand->addCard($cardObj);
+                /** @var DeckOfCards $deck */
+                $deck = $game->deck;
+                $card = $deck->draw();
+                $cardObj = $game->players[0]->stringToCard($card[0]);
+                $game->players[0]->hand->addCard($cardObj);
+                $ace = true;
+                $session->set("ace", true);
+                if (!str_contains($card[0], "A")) {
                     $game->players[0]->addPoints($cardObj);
+                    $ace = false;
+                    $session->set("ace", false);
                 }
             }
         }
@@ -76,23 +78,28 @@ class GameController extends AbstractController
     public function gameEval(Request $request): Response
     {
         $session = $request->getSession();
+        /** @var CardGame $game */
         $game = $session->get("game");
         $action = $request->request->get("id");
 
         if ($action == "draw") {
             return $this->redirect("/game");
         } elseif ($action == "fold") {
+            /** @var Bank $bank */
+            $bank = $game->players[1];
             $game->fold();
-            while ($game->players[1]->score < 20 && $game->turn == 1) {
-                $card = $game->deck->draw();
+            while ($bank->score < 20 && $game->turn == 1) {
+                /** @var DeckOfCards $deck */
+                $deck = $game->deck;
+                $card = $deck->draw();
                 if (str_contains($card[0], "A")) {
-                    $cardObj = $game->players[1]->stringToCard($card[0]);
-                    $game->players[1]->hand->addCard($cardObj);
-                    $game->players[1]->evalAce();
-                } elseif ($game->players[1]->handEval() == "draw") {
-                    $cardObj = $game->players[1]->stringToCard($card[0]);
-                    $game->players[1]->hand->addCard($cardObj);
-                    $game->players[1]->addPoints($cardObj);
+                    $cardObj = $bank->stringToCard($card[0]);
+                    $bank->hand->addCard($cardObj);
+                    $bank->evalAce();
+                } elseif ($bank->handEval() == "draw") {
+                    $cardObj = $bank->stringToCard($card[0]);
+                    $bank->hand->addCard($cardObj);
+                    $bank->addPoints($cardObj);
                 }
             }
             $game->fold();

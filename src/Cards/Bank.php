@@ -2,23 +2,33 @@
 
 namespace App\Cards;
 
-class Bank extends Player {
+class Bank extends Player
+{
     public function __construct()
     {
         parent::__construct("bank");
     }
-    
-    public function handEval() {
-        if ($this->score < 19) {
+
+    /**
+     * Method to evaluate whether to draw or to fold.
+     * @return string the evaluated option.
+     */
+    public function handEval(): String
+    {
+        if ($this->score < 18) {
             return "draw";
         }
         return "fold";
     }
-    public function evalAce() {
-    if ($this->score < 6 || $this->score == 9 || $this->score == 10) {
-        $this->score += 11;
-    } else {
-        $this->score += 1;
-    }
+    /**
+     * Method to evaluate whether to use the ace as 11 or 1 points.
+     */
+    public function evalAce(): void
+    {
+        $score = 1;
+        if ($this->score > 6 && $this->score < 10) {
+            $score = 11;
+        }
+        $this->score += $score;
     }
 }

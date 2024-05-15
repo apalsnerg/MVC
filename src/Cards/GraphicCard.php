@@ -7,25 +7,35 @@ namespace App\Cards;
 */
 class GraphicCard extends Card
 {
-    public $graphic;
-    
-    public function __construct($value = null, $suit = null)
+    public string $graphic;
+
+    public function __construct(string $value = null, string $suit = null)
     {
         parent::__construct($value, $suit);
         $this->graphic = "[" . $this->value . $this->suit . "]";
     }
 
-    public function graphic()
+    /**
+     * Method to return the graphic representation of the card
+     *
+     * @return string the graphic
+     */
+    public function graphic(): string
     {
         return $this->graphic;
     }
 
-    public function stringToCard($str) {
-        var_dump($str);
-        trim($str, "[]");
+    /**
+     * Method to turn a string into a GraphicCard,
+     *
+     * @return object the resulting GraphicCard object
+     */
+    public function stringToCard(string $str): object
+    {
+        $str = trim($str, "[]");
         $suit = $str[0];
-        ltrim($str, $str[0]);
-        
+        $str = ltrim($str, $str[0]);
+
         return new GraphicCard($str, $suit);
     }
 }

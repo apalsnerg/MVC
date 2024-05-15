@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Cards\CardGame;
 use App\Cards\DeckOfCards;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,8 +14,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 class JSONRouteController extends AbstractController
 {
-
-    #[Route("/api", name: "api", methods: ['GET'])]
+    #[Route("/api", name: "api", methods: ["GET"])]
     public function api(RouterInterface $router): Response
     {
         $routes = $router->getRouteCollection();
@@ -25,10 +25,10 @@ class JSONRouteController extends AbstractController
         return $this->render("api.html.twig", $data);
     }
 
-    #[Route("/api/quote", name: "api_quote", methods: ['GET'])]
+    #[Route("/api/quote", name: "api_quote", methods: ["GET"])]
     public function quote(): JsonResponse
     {
-        $quotes = 
+        $quotes =
         [
             "If you can't feed a hundred people, then feed just one.",
             "From the moment I understood the weakness of my flesh, it disgusted me. " .
@@ -49,18 +49,18 @@ class JSONRouteController extends AbstractController
 
         $response = new JsonResponse($data);
         $response->setEncodingOptions(JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
-        
+
         return $response;
     }
 
-    #[Route("api/session", name:"api_session", methods: ['GET'])]
-    public function sesh(): JsonResponse
+    #[Route("api/session", name:"api_session", methods: ["GET"])]
+    public function sesh(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
         }
-
+        $session = $request->getSession();
         $session->set("test", "Testing if data submits");
         $sessiondata = $session->getBag("attributes");
 
@@ -77,7 +77,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/destroy", name:"api_destroy", methods: ['GET'])]
+    #[Route("api/destroy", name:"api_destroy", methods: ["GET"])]
     public function seshdestroy(Request $request): Response
     {
         $session = $request->getSession();
@@ -91,20 +91,21 @@ class JSONRouteController extends AbstractController
         return $this->redirect("../api");
     }
 
-    #[Route("api/deck", name:"api_deck", methods: ['GET'])]
-    public function deck(): JsonResponse
+    #[Route("api/deck", name:"api_deck", methods: ["GET"])]
+    public function deck(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
-        $deckBag = $session->getBag("attributes");
-        $deck = $deckBag->get("deck");
+        $session = $request->getSession();
+        /** @var DeckOfCards $deck */
+        $deck = $session->get("deck");
 
         $data = [
             "session" => $session,
@@ -119,28 +120,29 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name:"api_shuffle", methods: ['GET'])]
-    public function shuffle(): JsonResponse
+    #[Route("/api/deck/shuffle", name:"api_shuffle", methods: ["GET"])]
+    public function shuffle(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
-        if (!$session->get("deck")) {
+
+        $session = $request->getSession();
+
+        /** @var DeckOfCards $deck */
+        $deck = $session->get("deck");
+
+        if ($deck->getLength() == 0) {
             $deck = new DeckOfCards();
             $deck->shuffle();
             $session->set("deck", $deck);
         }
 
-        $deckBag = $session->getBag("attributes");
-        $deck = $deckBag->get("deck");
-
-        if ($deck->getLength() == 0) {
-            $deck = new DeckOfCards;
-            $deck->shuffle();
-            $session->set("deck", $deck);
-        }
-        
         $deck->shuffle();
 
         $data = [
@@ -156,14 +158,15 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/reset", name:"api_reset", methods: ['GET'])]
-    public function resetShuffle(): JsonResponse
+    #[Route("api/deck/reset", name:"api_reset", methods: ["GET"])]
+    public function resetShuffle(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
         }
 
+        $session = $request->getSession();
         $deck = new DeckOfCards();
         $session->set("deck", $deck);
 
@@ -179,20 +182,22 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/draw", name:"api_draw", methods: ['GET'])]
+    #[Route("api/deck/draw", name:"api_draw", methods: ["GET"])]
     public function draw(Request $request): JsonResponse
     {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
         $session = $request->getSession();
+
+        /** @var DeckOfCards $deck */
         $deck = $session->get("deck");
         $cards = $deck->draw(1);
         $session->set("deck", $deck);
@@ -211,31 +216,59 @@ class JSONRouteController extends AbstractController
 
         return $response;
     }
-    
-    #[Route("api/deck/draw/{number}", name:"api_drawnum", methods: ['GET'])]
+
+    #[Route("api/deck/draw/{number}", name:"api_drawnum", methods: ["GET"])]
     public function drawnum(Request $request, int $number = 1): JsonResponse
     {
 
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
         $session = $request->getSession();
+
+        /** @var DeckOfCards $deck */
         $deck = $session->get("deck");
 
         $cards = $deck->draw($number);
         $session->set("deck", $deck);
 
-        $cardCount = $session->get("deck")->getLength();
+        $cardCount = $deck->getLength();
 
         $data = [
             "cards" => $cards,
             "deck length" => $cardCount
+        ];
+
+        $response = new JsonResponse($data);
+        $response->setEncodingOptions(
+            $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
+        );
+
+        return $response;
+    }
+
+    #[Route("api/gamestate", name:"api_gamestate", methods: ["GET"])]
+    public function gamestate(Request $request): JsonResponse
+    {
+        if (session_status() != "PHP_SESSION_ACTIVE") {
+            $session = new Session();
+            $session->start();
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
+        }
+        $session = $request->getSession();
+        $game = $session->get("game");
+
+        $data = [
+            "game" => $game
         ];
 
         $response = new JsonResponse($data);

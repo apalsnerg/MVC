@@ -18,12 +18,11 @@ class DeckController extends AbstractController
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
-        }
-
         $card = new GraphicCard();
 
         $data = [
@@ -34,19 +33,20 @@ class DeckController extends AbstractController
     }
 
     #[Route("/card/deck", name:"deck", methods: ["GET"])]
-    public function deck(): Response
+    public function deck(Request $request): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
-        $deckBag = $session->getBag("attributes");
-        $deck = $deckBag->get("deck");
+        $session = $request->getSession();
+        /** @var DeckOfCards $deck */
+        $deck = $session->get("deck");
 
         $data = [
             "session" => $session,
@@ -57,27 +57,27 @@ class DeckController extends AbstractController
     }
 
     #[Route("/card/deck/shuffle", name:"shuffle", methods: ["GET"])]
-    public function shuffle(): Response
+    public function shuffle(Request $request): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
-        if (!$session->get("deck")) {
+
+        $session = $request->getSession();
+        /** @var DeckOfCards $deck */
+        $deck = $session->get("deck");
+        if ($deck->getLength() == 0) {
             $deck = new DeckOfCards();
             $deck->shuffle();
             $session->set("deck", $deck);
         }
 
-        $deckBag = $session->getBag("attributes");
-        $deck = $deckBag->get("deck");
-
-        if ($deck->getLength() == 0) {
-            $deck = new DeckOfCards;
-            $deck->shuffle();
-            $session->set("deck", $deck);
-        }
-        
+        /** @var DeckOfCards $deck */
         $deck->shuffle();
 
         $data = [
@@ -89,12 +89,14 @@ class DeckController extends AbstractController
     }
 
     #[Route("card/deck/shuffle/reset", name:"cardShuffleReset", methods: ["GET"])]
-    public function resetShuffle(): Response
+    public function resetShuffle(Request $request): Response
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
         }
+
+        $session = $request->getSession();
 
         $deck = new DeckOfCards();
         $deck->shuffle();
@@ -107,7 +109,7 @@ class DeckController extends AbstractController
     public function newDeckRedirect(Request $request): Response
     {
         $checkbox = $request->request->get("shfl");
-        $deck = new DeckOfCards;
+        $deck = new DeckOfCards();
         $session = $request->getSession();
         $session->set("deck", $deck);
         if ($checkbox) {
@@ -119,20 +121,21 @@ class DeckController extends AbstractController
     #[Route("card/deck/draw", name:"draw", methods: ["GET"])]
     public function draw(Request $request): Response
     {
-
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
         $session = $request->getSession();
+        /** @var DeckOfCards $deck */
         $deck = $session->get("deck");
         $cards = $deck->draw(1);
         $session->set("deck", $deck);
+        /** @var DeckOfCards $deck */
         $length = $deck->getLength();
 
         $data = [
@@ -143,7 +146,7 @@ class DeckController extends AbstractController
 
         return $this->render("draw.html.twig", $data);
     }
-    
+
     #[Route("card/deck/draw/{number}", name:"drawnum", methods: ["GET"])]
     public function drawnum(Request $request, int $number = 1): Response
     {
@@ -151,19 +154,21 @@ class DeckController extends AbstractController
         if (session_status() != "PHP_SESSION_ACTIVE") {
             $session = new Session();
             $session->start();
-        }
-        if (!$session->get("deck")) {
-            $deck = new DeckOfCards();
-            $session->set("deck", $deck);
+            if (!$session->get("deck")) {
+                $deck = new DeckOfCards();
+                $session->set("deck", $deck);
+            }
         }
 
         $session = $request->getSession();
+        /** @var DeckOfCards $deck */
         $deck = $session->get("deck");
 
         $cards = $deck->draw($number);
         $session->set("deck", $deck);
-
-        $cardCount = $session->get("deck")->getLength();
+        /** @var DeckOfCards $deck */
+        $deck = $session->get("deck");
+        $cardCount = $deck->getLength();
 
         $data = [
             "cards" => $cards,

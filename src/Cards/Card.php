@@ -7,10 +7,10 @@ namespace App\Cards;
  */
 class Card
 {
-    public $suit;
-    public $value;
-    
-    public function __construct($value = null, $suit = null)
+    public string $suit;
+    public string $value;
+
+    public function __construct(String $value = null, String $suit = null)
     {
         $values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
         if (is_null($value)) {
@@ -25,11 +25,21 @@ class Card
         $this->suit = $suit;
     }
 
-    public function getValue()
+    /**
+     * Method to return the value of the card.
+     *
+     * @return string the value.
+     */
+    public function getValue(): string
     {
         return $this->value;
     }
 
+    /**
+     * Method to return the suit of the card.
+     *
+     * @return string the suit.
+     */
     public function getSuit()
     {
         return $this->suit;

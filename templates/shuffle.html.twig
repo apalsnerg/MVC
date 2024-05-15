@@ -7,13 +7,17 @@
     <div>
     <h1>Kortleksuppgift - kortlek</h1>
     {% set count = 0%}
-    {% for card in deck %}
-        <span class="{{ card|slice(2,2) }}">{{ card }}</span>
-        {% set count = count + 1 %}
-        {% if count is divisible by(13) and count != 1 %}
-        <hr>
-        {% endif %}
-    {% endfor %}
+        {% for card in deck %}
+            {% if card|length == 6 %}
+            <span class="{{ card|slice(3,2) }}">{{ card }}</span>
+            {% else %}
+            <span class="{{ card|slice(2,2) }}">{{ card }}</span>
+            {% endif %}
+            {% set count = count + 1 %}
+            {% if count is divisible by(13) and count != 1 %}
+                <hr>
+            {% endif %}
+        {% endfor %}
     </div>
     <div>
         <form method="POST" action="{{ path('newDeckRedirect') }}">

@@ -2,33 +2,50 @@
 
 namespace App\Cards;
 
-class Player {
+class Player
+{
+    /** @var CardHand the player's hand of cards */
     public $hand;
+    /** @var mixed the player's identifier */
     public $identifier;
+    /** @var int how many points the player's hand is worth */
     public $score;
 
-    public function __construct($identifier=0) {
+    public function __construct(mixed $identifier = 0)
+    {
         $this->hand = new CardHand(0);
         $this->identifier = $identifier;
         $this->score = 0;
     }
 
-    public function getPoints() {
+    /**
+     * Method to return the amount of points the hand is worth.
+     */
+    public function getPoints(): int
+    {
         return $this->score;
     }
 
-    public function addPoints(GraphicCard $card) {
+    /**
+     * Method to add points to $score from a GraphicCard object.
+     */
+    public function addPoints(GraphicCard $card): void
+    {
         $totalPoints = 0;
         $value = $card->getValue();
         $totalPoints += intval($value);
-        
+
         if (in_array($value, [10, "J", "Q", "K"])) {
             $totalPoints = 10;
         }
         $this->score += $totalPoints;
     }
 
-    public function ace($option) {
+    /**
+     * Method to add points to $score depending on how the player decides to use their ace.
+     */
+    public function ace(string $option): void
+    {
         $score = 1;
         if ($option == "high") {
             $score = 11;
@@ -36,8 +53,12 @@ class Player {
         $this->score += $score;
     }
 
-    public function stringToCard(String $str) {
-        
+    /**
+     * Method to turn a graphic representation of a card as a string into a GraphicCard object.
+     */
+    public function stringToCard(String $str): GraphicCard
+    {
+
         $str = trim($str, "[]");
         $value = $str[0];
         $tenSuit = null;
@@ -49,7 +70,7 @@ class Player {
         if (!empty($tenSuit)) {
             $suit = $tenSuit;
         }
-    
+
         return new GraphicCard($value, $suit);
     }
 }

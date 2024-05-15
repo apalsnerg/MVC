@@ -14,10 +14,11 @@
             <li> <a href="{{ path('api_session') }}">/api/session</a> - Få information om sessionen.</li>
             <li> <a href="{{ path('api_destroy') }}">/api/destroy</a> - Förinta sessionen.</li>
             <li> <a href="{{ path('api_deck') }}">/api/deck</a> - Visa upp en kortlek.</li>
-            <li> <a href="{{ path('api_shuffle') }}">/api/shuffle</a> - Shuffle the deck.</li>
-            <li> <a href="{{ path('api_reset') }}">/api/reset</a> - Reset the deck to normal.</li>
-            <li> <a href="{{ path('api_draw') }}">/api/deck/draw</a> - Draw one card from the deck.</li>
-            <li> <a href="{{ path('api_drawnum') }}">/api/deck/draw/{number}</a> - Draw {number} of cards from the deck</li>
+            <li> <a href="{{ path('api_shuffle') }}">/api/shuffle</a> - Kasta om kortleken.</li>
+            <li> <a href="{{ path('api_reset') }}">/api/reset</a> - Återställ kortleken.</li>
+            <li> <a href="{{ path('api_draw') }}">/api/deck/draw</a> - Drag ett kort från kortleken.</li>
+            <li> <a href="{{ path('api_drawnum') }}">/api/deck/draw/{number}</a> - Drag {number} kort från kortleken.</li>
+            <li> <a href="{{ path('api_gamestate') }}">/api/gamestate</a> - Visa status av kortleksspelet.</li>
         </ul>
         {% for label, messages in app.flashes %}
             {% for message in messages %}

@@ -7,21 +7,22 @@ namespace App\Cards;
  */
 class CardHand
 {
-    public $hand = [];
-    
-    public function __construct($cards = 5)
+    /** @var array<GraphicCard> a list containing GraphicCard objects */
+    public array $hand = [];
+
+    public function __construct(int $cards = 5)
     {
-        for ($i=0; $i < $cards && $i < 53; $i++) {
+        for ($i = 0; $i < $cards && $i < 53; $i++) {
             $this->hand[] = new GraphicCard();
         }
     }
-    
+
     /**
      * Method to return the graphic of the cards in the hand.
-     * 
-     * @return array An array of the graphics of the cards in the deck.
+     *
+     * @return array<string> An array of the graphics of the cards in the deck.
      */
-    public function getCardGraphics()
+    public function getCardGraphics(): array
     {
         $returnValues = [];
         $hand = $this->hand;
@@ -31,9 +32,11 @@ class CardHand
         return $returnValues;
     }
 
-    public function addCard($card)
+    /**
+     * Method to add a card object to the hand.
+     */
+    public function addCard(GraphicCard $card): void
     {
         $this->hand[] = $card;
-        var_dump($card);
     }
 }
