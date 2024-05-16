@@ -34,8 +34,9 @@ class Player
         $totalPoints = 0;
         $value = $card->getValue();
         $totalPoints += intval($value);
+        var_dump($totalPoints);
 
-        if (in_array($value, [10, "J", "Q", "K"])) {
+        if (in_array($card->value, [10, "J", "Q", "K"])) {
             $totalPoints = 10;
         }
         $this->score += $totalPoints;

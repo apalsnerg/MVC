@@ -56,7 +56,7 @@ class ReportController extends AbstractController
             $session->start();
         }
         /** @var Session $session */
-        $session = $request->get("session");
+        $session = $request->getSession();
         $session->set("test", "Testing if data submits");
         $sessiondata = $session->getBag("attributes");
 

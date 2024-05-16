@@ -7,7 +7,7 @@
     <h1>Kortspelet 21</h1>
     <div class="gameSpace">
         {% if card is not null %}
-            <h2>Du drog {{ card[0] }}</h2>
+            <h2>Du drog {{ card.graphic }}</h2>
         {% endif %}
         <div class="playSpace">
             <div class="playerSpace">
@@ -44,7 +44,7 @@
     {% if turn == 0 %}
     <div class="formsDiv">
         <div class="drawDiv">
-            {% if player1points < 21 and ace != true %}
+            {% if player1points < 21 and ace == false %}
         <form method="post" action="{{ path('gameEval') }}">
             <button type="submit" class="button" name="id" class="button" value="draw">
                 Dra ett till kort

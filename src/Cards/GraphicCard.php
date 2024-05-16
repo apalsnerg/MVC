@@ -7,8 +7,15 @@ namespace App\Cards;
 */
 class GraphicCard extends Card
 {
+    /** @var string $graphic the graphical representation of the card */
     public string $graphic;
 
+    /**
+     * Method to construct a GraphicCard object.
+     * 
+     * @param string $value the value of the card
+     * @param string $suit the suit of the card
+     */
     public function __construct(string $value = null, string $suit = null)
     {
         parent::__construct($value, $suit);

@@ -47,13 +47,12 @@ class GameController extends AbstractController
             if ($game->turn == 0 && $game->players[0]->score < 22) {
                 /** @var DeckOfCards $deck */
                 $deck = $game->deck;
-                $card = $deck->draw();
-                $cardObj = $game->players[0]->stringToCard($card[0]);
-                $game->players[0]->hand->addCard($cardObj);
+                $card = $deck->draw()[0];
+                $game->players[0]->hand->addCard($card);
                 $ace = true;
                 $session->set("ace", true);
-                if (!str_contains($card[0], "A")) {
-                    $game->players[0]->addPoints($cardObj);
+                if ($card->value != "A") {
+                    $game->players[0]->addPoints($card);
                     $ace = false;
                     $session->set("ace", false);
                 }
@@ -91,15 +90,13 @@ class GameController extends AbstractController
             while ($bank->score < 20 && $game->turn == 1) {
                 /** @var DeckOfCards $deck */
                 $deck = $game->deck;
-                $card = $deck->draw();
-                if (str_contains($card[0], "A")) {
-                    $cardObj = $bank->stringToCard($card[0]);
-                    $bank->hand->addCard($cardObj);
+                $card = $deck->draw()[0];
+                if ($card->value == "A") {
+                    $bank->hand->addCard($card);
                     $bank->evalAce();
                 } elseif ($bank->handEval() == "draw") {
-                    $cardObj = $bank->stringToCard($card[0]);
-                    $bank->hand->addCard($cardObj);
-                    $bank->addPoints($cardObj);
+                    $bank->hand->addCard($card);
+                    $bank->addPoints($card);
                 }
             }
             $game->fold();

@@ -9,9 +9,9 @@
     {% set count = 0%}
         {% for card in deck %}
             {% if card|length == 6 %}
-            <span class="{{ card|slice(3,2) }}">{{ card }}</span>
+                <span class="{{ card.suit }}">{{ card.graphic }}</span>
             {% else %}
-            <span class="{{ card|slice(2,2) }}">{{ card }}</span>
+                <span class="{{ card.suit }}">{{ card.graphic }}</span>
             {% endif %}
             {% set count = count + 1 %}
             {% if count is divisible by(13) and count != 1 %}

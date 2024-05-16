@@ -95,7 +95,9 @@
             "@phpmd",
             "@phpstan",
             "@csfix"
-        ]
+        ],
+        "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
+        "phpunit": "tools/phpunit/phpunit --config=tools/phpunit/phpunit.xml"
     },
     "conflict": {
         "symfony/symfony": "*"

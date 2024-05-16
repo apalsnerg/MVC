@@ -17,7 +17,7 @@ class DeckOfCards
 
         for ($a = 0; $a < 4; $a++) {
             for ($i = 0; $i < 13; $i++) {
-                $this->deck[] = "[" . $values[$i] . $suits[$a] . "]";
+                $this->deck[] = new GraphicCard($values[$i], $suits[$a]);
             }
         }
     }
@@ -43,7 +43,7 @@ class DeckOfCards
     /**
      * Draws an amount of cards from the deck and removes it.
      *
-     * @return array<string> An array of the random cards.
+     * @return array<GraphicCard> An array of the random cards.
      */
     public function draw(int $number = 1): array
     {
