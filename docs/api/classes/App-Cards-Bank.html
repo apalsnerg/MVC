@@ -57,6 +57,16 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/src.html" class="">Src</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/src-adventure.html" class="">Adventure</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -125,11 +135,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Bank.php"><a href="files/src-cards-bank.html"><abbr title="src/Cards/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">5</span>
+    <span class="phpdocumentor-element-found-in__line">8</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">Class to represent the Bank for the card game.</p>
+
 
 
 
@@ -186,20 +197,21 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Constructs the Player.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-Player.html#method_ace">ace()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Method to add points to $score depending on how the player decides to use their ace.</dd>
+<dd>Add points to $this-&gt;score depending on how the player decides to use their ace.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-Player.html#method_addPoints">addPoints()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Method to add points to $score from a GraphicCard object.</dd>
+<dd>Add points to $score from a GraphicCard object.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-Bank.html#method_evalAce">evalAce()</a>
@@ -213,7 +225,7 @@
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Method to return the amount of points the hand is worth.</dd>
+<dd>Return the amount of points the player has.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-Bank.html#method_handEval">handEval()</a>
@@ -221,13 +233,6 @@
                                 &nbsp;: string    </span>
 </dt>
 <dd>Method to evaluate whether to draw or to fold.</dd>
-
-            <dt class="phpdocumentor-table-of-contents__entry -method -public">
-    <a href="classes/App-Cards-Player.html#method_stringToCard">stringToCard()</a>
-    <span>
-                                &nbsp;: <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>    </span>
-</dt>
-<dd>Method to turn a graphic representation of a card as a string into a GraphicCard object.</dd>
 
     </dl>
 
@@ -260,7 +265,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">8</span>
+    <span class="phpdocumentor-element-found-in__line">13</span>
 
     </aside>
 
@@ -295,7 +300,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">16</span>
 
     </aside>
 
@@ -330,7 +335,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">12</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -370,11 +375,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Bank.php"><a href="files/src-cards-bank.html"><abbr title="src/Cards/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">7</span>
+    <span class="phpdocumentor-element-found-in__line">10</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Constructs the Player.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -401,15 +407,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">47</span>
+    <span class="phpdocumentor-element-found-in__line">68</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to add points to $score depending on how the player decides to use their ace.</p>
+        <p class="phpdocumentor-summary">Add points to $this-&gt;score depending on how the player decides to use their ace.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">ace</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$option</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
+                    <span class="phpdocumentor-signature__name">ace</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$option</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">&quot;low&quot;</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -419,9 +425,11 @@
                     <dt class="phpdocumentor-argument-list__entry">
                 <span class="phpdocumentor-signature__argument__name">$option</span>
                 : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
+                 = <span class="phpdocumentor-signature__argument__default-value">&quot;low&quot;</span>            </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>whether to count as 11 or 1.</p>
+</section>
+
             </dd>
             </dl>
 
@@ -443,11 +451,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">32</span>
+    <span class="phpdocumentor-element-found-in__line">51</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to add points to $score from a GraphicCard object.</p>
+        <p class="phpdocumentor-summary">Add points to $score from a GraphicCard object.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -463,7 +471,9 @@
                 : <span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a></span>
                             </dt>
             <dd class="phpdocumentor-argument-list__definition">
-                
+                    <section class="phpdocumentor-description"><p>the GraphicCard to be evaluated</p>
+</section>
+
             </dd>
             </dl>
 
@@ -485,7 +495,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Bank.php"><a href="files/src-cards-bank.html"><abbr title="src/Cards/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -517,11 +527,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">41</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to return the amount of points the hand is worth.</p>
+        <p class="phpdocumentor-summary">Return the amount of points the player has.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -536,6 +546,10 @@
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">int</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>the score</p>
+</section>
+
             </section>
 
 </article>
@@ -553,7 +567,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Bank.php"><a href="files/src-cards-bank.html"><abbr title="src/Cards/Bank.php">Bank.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">16</span>
+    <span class="phpdocumentor-element-found-in__line">19</span>
 
     </aside>
 
@@ -576,52 +590,6 @@
                 <section class="phpdocumentor-description"><p>the evaluated option.</p>
 </section>
 
-            </section>
-
-</article>
-                    <article
-        class="phpdocumentor-element
-            -method
-            -public
-                                                        "
->
-    <h4 class="phpdocumentor-element__name" id="method_stringToCard">
-        stringToCard()
-        <a href="classes/App-Cards-Player.html#method_stringToCard" class="headerlink"><i class="fas fa-link"></i></a>
-
-    </h4>
-    <aside class="phpdocumentor-element-found-in">
-    <abbr class="phpdocumentor-element-found-in__file" title="src/Cards/Player.php"><a href="files/src-cards-player.html"><abbr title="src/Cards/Player.php">Player.php</abbr></a></abbr>
-    :
-    <span class="phpdocumentor-element-found-in__line">59</span>
-
-    </aside>
-
-        <p class="phpdocumentor-summary">Method to turn a graphic representation of a card as a string into a GraphicCard object.</p>
-
-    <code class="phpdocumentor-code phpdocumentor-signature ">
-    <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">stringToCard</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$str</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a></span></code>
-
-    <div class="phpdocumentor-label-line">
-        </div>
-    
-        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
-    <dl class="phpdocumentor-argument-list">
-                    <dt class="phpdocumentor-argument-list__entry">
-                <span class="phpdocumentor-signature__argument__name">$str</span>
-                : <span class="phpdocumentor-signature__argument__return-type">string</span>
-                            </dt>
-            <dd class="phpdocumentor-argument-list__definition">
-                
-            </dd>
-            </dl>
-
-    
-
-            <section>
-        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a></span>
             </section>
 
 </article>
@@ -753,7 +721,6 @@
                                             <li><a href="classes/App-Cards-Bank.html#method_evalAce">evalAce()</a></li>
                                             <li><a href="classes/App-Cards-Player.html#method_getPoints">getPoints()</a></li>
                                             <li><a href="classes/App-Cards-Bank.html#method_handEval">handEval()</a></li>
-                                            <li><a href="classes/App-Cards-Player.html#method_stringToCard">stringToCard()</a></li>
                                     </ul>
             </li>
                     </ul>

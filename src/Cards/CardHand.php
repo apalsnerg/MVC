@@ -10,17 +10,22 @@ class CardHand
     /** @var array<GraphicCard> a list containing GraphicCard objects */
     public array $hand = [];
 
-    public function __construct(int $cards = 5)
+    /**
+     * Constructs the CardHand object.
+     *
+     * @param integer $amount the amount of cards to put in the hand
+     */
+    public function __construct(int $amount = 5)
     {
-        for ($i = 0; $i < $cards && $i < 53; $i++) {
+        for ($i = 0; $i < $amount && $i < 53; $i++) {
             $this->hand[] = new GraphicCard();
         }
     }
 
     /**
-     * Method to return the graphic of the cards in the hand.
+     * Returns the graphic of the cards in the hand.
      *
-     * @return array<string> An array of the graphics of the cards in the deck.
+     * @return array<string> an array of the graphics of the cards in the deck
      */
     public function getCardGraphics(): array
     {
@@ -33,7 +38,19 @@ class CardHand
     }
 
     /**
-     * Method to add a card object to the hand.
+     * Returns the hand.
+     *
+     * @return array<GraphicCard> the hand array
+     */
+    public function getCards(): array
+    {
+        return $this->hand;
+    }
+
+    /**
+     * Adds a card object to the hand.
+     *
+     * @param GraphicCard $card the card to be added
      */
     public function addCard(GraphicCard $card): void
     {

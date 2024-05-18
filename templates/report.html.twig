@@ -308,6 +308,95 @@
                 </p>
             </div>
         </div>
+        <div>
+            <div class="kmom kmom03" id="kmom03">
+                <h4>
+                    Berätta hur du upplevde att skriva kod som testar annan
+                    kod med PHPUnit och hur du upplever phpunit rent allmänt.
+                </h4>
+                <div class="reviewText">
+                    Att skriva testcases är något vi tidigare gjort i en annan delkurs,
+                    så det var inget nytt, direkt. Det är en på det stora hela en okej
+                    upplevelse, om kanske lite tråkigt. Jag skulle dock säga att det är
+                    något invecklat, i och med att det finns en hel del man måste anpassa
+                    för att testerna ska fungera; därutöver finns det en hel del saker
+                    som man inte får göra, trots att man vill. Ett exempel är att jag ville
+                    se till att vissa metoder kastade TypeError om man använde fel slags argument,
+                    säg ett objekt istället för en sträng, men det testets kördes aldrig eftersom
+                    jag hade typehintat metoden. Det kanske dock bara är en PHP-sak, så jag kan
+                    kanske inte klandra PHPUNIT för det.
+                </div>
+                <br>
+                <h4>
+                    Hur väl lyckades du med kodtäckningen av din kod,
+                    lyckades du nå mer än 90% kodtäckning?
+                </h4>
+                <div class="reviewText">
+                    Jag lyckades nå 100% kodtäckning. Däremot så valde jag att inte alls
+                    testa mina controllers, så det bör has i åtanke. Det kanske görs vid ett
+                    senare tillfälle.
+                </div>
+                <br>
+                <h4>
+                    Upplever du din egen kod som “testbar kod” eller finns det
+                    delar i koden som är mera eller mindre testbara och finns det
+                    saker som kan göras för att förbättra kodens testbarhet?
+                </h4>
+                <div class="reviewText">
+                    Jag upplever min kod som huvudsakligen väldigt testbar, men det är
+                    kanske för att jag fick göra en hel del uppdatering för att se till
+                    att allt validerade. Det fanns tidigare delar i koden som inte gick
+                    att testa, som nämnt ovan, men dessa togs bort eftersom deras otestbarhet
+                    bevisade att de var onödvändiga.
+                </div>
+                <br>
+                <h4>
+                    Valde du att skriva om delar av din kod för att förbättra den
+                    eller göra den mer testbar, om så berätta lite hur du tänkte.
+                </h4>
+                <div class="reviewText">
+                    Jag tvingades, eller kanske närmre uppmanades, att uppdatera mitt spel till
+                    att använda GraphicCard-objekt itsället för strängrepresentationer (i korten
+                    s.k. graphic). Detta för att jag annars var tvungen att konvertera till
+                    och från objekt och strängar och metoden jag tänkte ut för det var ineffektiv
+                    och bökig. Det gjorde dessutom det hela lättare i twig för att få fram datan
+                    jag behövde. Ursprungligen, har jag för mig, använde jag mig av strängar för
+                    att jag antog att twig inte skulle hantera objekt väl, men det visade sig
+                    snabbt vara ett felsteg och en bra korrigering.
+                </div>
+                <br>
+                <h4>
+                    Fundera över om du anser att testbar kod är
+                    något som kan identifiera “snygg och ren kod”.
+                </h4>
+                <div class="reviewText">
+                    Jag skulle nog säga att testbar kod är en utmärkande aspekt av ren kod. Det
+                    tvingar dig att precisera och smala ner din kod för att göra den så effektiv
+                    som möjligt; det yttersta målet, allt som allt, är ju att behöva använda så
+                    få test som möjligt och praktiskt. Dåligt strukturerad kod måste troligtvis
+                    implementera flera överdådiga test, och detta kan peka på att man kan
+                    förbättra sin implementering. Det vill dock inte säga att en kod
+                    nödvändigtvis är väldigt testbar bara för att den är stilren; det kan ju
+                    förefalla sig så att de testerna man har som så bra fungerar egentligen
+                    testar för saker som inte behövs. Till exempel använde mitt DeckOfCards som
+                    nämnt åvan stringrepresentationer av GraphicCard-objekt i sitt Deck, och
+                    hade jag utvecklat klart metoderna för strängkonverteringen för detta och
+                    skrivit heltäckande tester hade det ju kunnat räknats som stilren; men den
+                    hade fortfarande varit ineffektiv eftersom att använda objekt direkt helt
+                    enkelt är en bättre implementering. Den metoden hade alltså varit testbar
+                    och stilren med ändå en börda för koden.
+                </div>
+                <br>
+                <h4>
+                    Vilken är din TIL för detta kmom?
+                </h4>
+                <div class="reviewText">
+                    TIL att det inte egentligen är så jobbigt att skriva PHP-dokumentation;
+                    när man väl förstår vad som bör stå var så går det fort, och kan även
+                    hjälpa en förstå sin kod bättre, både i nuläget och när man läser det
+                    igen senare.
+                </div>
+                <br>
     </div>
 </main>
 {% endblock %}

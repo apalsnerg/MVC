@@ -97,7 +97,13 @@
             "@csfix"
         ],
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
-        "phpunit": "tools/phpunit/phpunit --config=tools/phpunit/phpunit.xml"
+        "phpunit": "XDEBUG_MODE=coverage bin/phpunit --coverage-text tests/",
+        "phpunit-html": "XDEBUG_MODE=coverage bin/phpunit --coverage-html docs/coverage",
+        "phpunit-full": [
+            "@phpunit",
+            "@phpunit-html"
+        ]
+        
     },
     "conflict": {
         "symfony/symfony": "*"

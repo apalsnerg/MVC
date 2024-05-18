@@ -1,14 +1,174 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\Src\\Adventure\\Actor",
+            "name": "Actor",
+            "summary": "",
+            "url": "classes/Src-Adventure-Actor.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Actor\u003A\u003A\u0024health",
+            "name": "health",
+            "summary": "",
+            "url": "classes/Src-Adventure-Actor.html#property_health"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Actor\u003A\u003A\u0024equippedItem",
+            "name": "equippedItem",
+            "summary": "",
+            "url": "classes/Src-Adventure-Actor.html#property_equippedItem"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero",
+            "name": "Hero",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#method___construct"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003AtakeDamage\u0028\u0029",
+            "name": "takeDamage",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#method_takeDamage"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003Aattack\u0028\u0029",
+            "name": "attack",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#method_attack"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A\u0024backpack",
+            "name": "backpack",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#property_backpack"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A\u0024health",
+            "name": "health",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#property_health"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A\u0024name",
+            "name": "name",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#property_name"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A\u0024equipped",
+            "name": "equipped",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#property_equipped"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Hero\u003A\u003A\u0024stats",
+            "name": "stats",
+            "summary": "",
+            "url": "classes/Src-Adventure-Hero.html#property_stats"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Adventure",
+            "name": "Adventure",
+            "summary": "",
+            "url": "classes/Src-Adventure-Adventure.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Adventure\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Src-Adventure-Adventure.html#method___construct"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Adventure\u003A\u003A\u0024player",
+            "name": "player",
+            "summary": "",
+            "url": "classes/Src-Adventure-Adventure.html#property_player"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Adventure\u003A\u003A\u0024enemy",
+            "name": "enemy",
+            "summary": "",
+            "url": "classes/Src-Adventure-Adventure.html#property_enemy"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Adventure\u003A\u003A\u0024rooms",
+            "name": "rooms",
+            "summary": "",
+            "url": "classes/Src-Adventure-Adventure.html#property_rooms"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Item",
+            "name": "Item",
+            "summary": "",
+            "url": "classes/Src-Adventure-Item.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Item\u003A\u003A\u0024value",
+            "name": "value",
+            "summary": "",
+            "url": "classes/Src-Adventure-Item.html#property_value"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Item\u003A\u003A\u0024weight",
+            "name": "weight",
+            "summary": "",
+            "url": "classes/Src-Adventure-Item.html#property_weight"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Weapon",
+            "name": "Weapon",
+            "summary": "",
+            "url": "classes/Src-Adventure-Weapon.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Weapon\u003A\u003A\u0024damageMin",
+            "name": "damageMin",
+            "summary": "",
+            "url": "classes/Src-Adventure-Weapon.html#property_damageMin"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Weapon\u003A\u003A\u0024damageMax",
+            "name": "damageMax",
+            "summary": "",
+            "url": "classes/Src-Adventure-Weapon.html#property_damageMax"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Weapon\u003A\u003A\u0024prefAttr",
+            "name": "prefAttr",
+            "summary": "",
+            "url": "classes/Src-Adventure-Weapon.html#property_prefAttr"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Encounter",
+            "name": "Encounter",
+            "summary": "",
+            "url": "classes/Src-Adventure-Encounter.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Entrance",
+            "name": "Entrance",
+            "summary": "",
+            "url": "classes/Src-Adventure-Entrance.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Entrance\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "",
+            "url": "classes/Src-Adventure-Entrance.html#method___construct"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Room",
+            "name": "Room",
+            "summary": "",
+            "url": "classes/Src-Adventure-Room.html"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Room\u003A\u003A\u0024interactables",
+            "name": "interactables",
+            "summary": "",
+            "url": "classes/Src-Adventure-Room.html#property_interactables"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Room\u003A\u003A\u0024entities",
+            "name": "entities",
+            "summary": "",
+            "url": "classes/Src-Adventure-Room.html#property_entities"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Room\u003A\u003A\u0024texts",
+            "name": "texts",
+            "summary": "",
+            "url": "classes/Src-Adventure-Room.html#property_texts"
+        },                {
+            "fqsen": "\\Src\\Adventure\\Shop",
+            "name": "Shop",
+            "summary": "",
+            "url": "classes/Src-Adventure-Shop.html"
+        },                {
             "fqsen": "\\App\\Cards\\Bank",
             "name": "Bank",
-            "summary": "",
+            "summary": "Class\u0020to\u0020represent\u0020the\u0020Bank\u0020for\u0020the\u0020card\u0020game.",
             "url": "classes/App-Cards-Bank.html"
         },                {
             "fqsen": "\\App\\Cards\\Bank\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020Player.",
             "url": "classes/App-Cards-Bank.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\Bank\u003A\u003AhandEval\u0028\u0029",
@@ -28,7 +188,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020class.",
             "url": "classes/App-Cards-Card.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\Card\u003A\u003AgetValue\u0028\u0029",
@@ -58,17 +218,17 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\CardGame\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020card\u0020game.",
             "url": "classes/App-Cards-CardGame.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\CardGame\u003A\u003Afold\u0028\u0029",
             "name": "fold",
-            "summary": "Method\u0020to\u0020end\u0020the\u0020current\u0020player\u0027s\u0020turn.",
+            "summary": "End\u0020the\u0020current\u0020player\u0027s\u0020turn.",
             "url": "classes/App-Cards-CardGame.html#method_fold"
         },                {
             "fqsen": "\\App\\Cards\\CardGame\u003A\u003AevalVictor\u0028\u0029",
             "name": "evalVictor",
-            "summary": "Method\u0020to\u0020evaluate\u0020the\u0020victor\u0020of\u0020the\u0020game.",
+            "summary": "Evaluate\u0020the\u0020victor\u0020of\u0020the\u0020game.",
             "url": "classes/App-Cards-CardGame.html#method_evalVictor"
         },                {
             "fqsen": "\\App\\Cards\\CardGame\u003A\u003A\u0024deck",
@@ -93,17 +253,22 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\CardHand\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020CardHand\u0020object.",
             "url": "classes/App-Cards-CardHand.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\CardHand\u003A\u003AgetCardGraphics\u0028\u0029",
             "name": "getCardGraphics",
-            "summary": "Method\u0020to\u0020return\u0020the\u0020graphic\u0020of\u0020the\u0020cards\u0020in\u0020the\u0020hand.",
+            "summary": "Returns\u0020the\u0020graphic\u0020of\u0020the\u0020cards\u0020in\u0020the\u0020hand.",
             "url": "classes/App-Cards-CardHand.html#method_getCardGraphics"
+        },                {
+            "fqsen": "\\App\\Cards\\CardHand\u003A\u003AgetCards\u0028\u0029",
+            "name": "getCards",
+            "summary": "Returns\u0020the\u0020hand.",
+            "url": "classes/App-Cards-CardHand.html#method_getCards"
         },                {
             "fqsen": "\\App\\Cards\\CardHand\u003A\u003AaddCard\u0028\u0029",
             "name": "addCard",
-            "summary": "Method\u0020to\u0020add\u0020a\u0020card\u0020object\u0020to\u0020the\u0020hand.",
+            "summary": "Adds\u0020a\u0020card\u0020object\u0020to\u0020the\u0020hand.",
             "url": "classes/App-Cards-CardHand.html#method_addCard"
         },                {
             "fqsen": "\\App\\Cards\\CardHand\u003A\u003A\u0024hand",
@@ -123,12 +288,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards\u003A\u003AreturnAllCards\u0028\u0029",
             "name": "returnAllCards",
-            "summary": "Method\u0020to\u0020return\u0020the\u0020deck\u0020of\u0020cards.",
+            "summary": "Return\u0020the\u0020deck\u0020of\u0020cards.",
             "url": "classes/App-Cards-DeckOfCards.html#method_returnAllCards"
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards\u003A\u003Ashuffle\u0028\u0029",
             "name": "shuffle",
-            "summary": "Method\u0020to\u0020shuffle\u0020all\u0020the\u0020cards\u0020in\u0020the\u0020deck\u0020\u0028randomize\u0020indexes\u0029.",
+            "summary": "Shuffles\u0020all\u0020the\u0020cards\u0020in\u0020the\u0020deck\u0020\u0028randomize\u0020indexes\u0029.",
             "url": "classes/App-Cards-DeckOfCards.html#method_shuffle"
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards\u003A\u003Adraw\u0028\u0029",
@@ -138,7 +303,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards\u003A\u003AgetLength\u0028\u0029",
             "name": "getLength",
-            "summary": "Method\u0020to\u0020return\u0020the\u0020amount\u0020of\u0020cards\u0020in\u0020the\u0020deck.",
+            "summary": "Return\u0020the\u0020amount\u0020of\u0020cards\u0020in\u0020the\u0020deck.",
             "url": "classes/App-Cards-DeckOfCards.html#method_getLength"
         },                {
             "fqsen": "\\App\\Cards\\DeckOfCards\u003A\u003A\u0024deck",
@@ -148,12 +313,12 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\Cards\\GraphicCard",
             "name": "GraphicCard",
-            "summary": "Class\u0020to\u0020practice\u0020inheritance.",
+            "summary": "Class\u0020to\u0020represent\u0020a\u0020card\u0020with\u0020a\u0020graphic\u0020component.",
             "url": "classes/App-Cards-GraphicCard.html"
         },                {
             "fqsen": "\\App\\Cards\\GraphicCard\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Method\u0020to\u0020construct\u0020a\u0020GraphicCard\u0020object.",
             "url": "classes/App-Cards-GraphicCard.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\GraphicCard\u003A\u003A\u0024graphic",
@@ -161,40 +326,30 @@ Search.appendIndex(
             "summary": "",
             "url": "classes/App-Cards-GraphicCard.html#property_graphic"
         },                {
-            "fqsen": "\\App\\Cards\\GraphicCard\u003A\u003AstringToCard\u0028\u0029",
-            "name": "stringToCard",
-            "summary": "Method\u0020to\u0020turn\u0020a\u0020string\u0020into\u0020a\u0020GraphicCard,",
-            "url": "classes/App-Cards-GraphicCard.html#method_stringToCard"
-        },                {
             "fqsen": "\\App\\Cards\\Player",
             "name": "Player",
-            "summary": "",
+            "summary": "Class\u0020to\u0020represent\u0020a\u0020player\u0020in\u0020the\u0020card\u0020game.",
             "url": "classes/App-Cards-Player.html"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020Player.",
             "url": "classes/App-Cards-Player.html#method___construct"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003AgetPoints\u0028\u0029",
             "name": "getPoints",
-            "summary": "Method\u0020to\u0020return\u0020the\u0020amount\u0020of\u0020points\u0020the\u0020hand\u0020is\u0020worth.",
+            "summary": "Return\u0020the\u0020amount\u0020of\u0020points\u0020the\u0020player\u0020has.",
             "url": "classes/App-Cards-Player.html#method_getPoints"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003AaddPoints\u0028\u0029",
             "name": "addPoints",
-            "summary": "Method\u0020to\u0020add\u0020points\u0020to\u0020\u0024score\u0020from\u0020a\u0020GraphicCard\u0020object.",
+            "summary": "Add\u0020points\u0020to\u0020\u0024score\u0020from\u0020a\u0020GraphicCard\u0020object.",
             "url": "classes/App-Cards-Player.html#method_addPoints"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003Aace\u0028\u0029",
             "name": "ace",
-            "summary": "Method\u0020to\u0020add\u0020points\u0020to\u0020\u0024score\u0020depending\u0020on\u0020how\u0020the\u0020player\u0020decides\u0020to\u0020use\u0020their\u0020ace.",
+            "summary": "Add\u0020points\u0020to\u0020\u0024this\u002D\u003Escore\u0020depending\u0020on\u0020how\u0020the\u0020player\u0020decides\u0020to\u0020use\u0020their\u0020ace.",
             "url": "classes/App-Cards-Player.html#method_ace"
-        },                {
-            "fqsen": "\\App\\Cards\\Player\u003A\u003AstringToCard\u0028\u0029",
-            "name": "stringToCard",
-            "summary": "Method\u0020to\u0020turn\u0020a\u0020graphic\u0020representation\u0020of\u0020a\u0020card\u0020as\u0020a\u0020string\u0020into\u0020a\u0020GraphicCard\u0020object.",
-            "url": "classes/App-Cards-Player.html#method_stringToCard"
         },                {
             "fqsen": "\\App\\Cards\\Player\u003A\u003A\u0024hand",
             "name": "hand",
@@ -375,6 +530,16 @@ Search.appendIndex(
             "name": "\\",
             "summary": "",
             "url": "namespaces/default.html"
+        },                {
+            "fqsen": "\\Src\\Adventure",
+            "name": "Adventure",
+            "summary": "",
+            "url": "namespaces/src-adventure.html"
+        },                {
+            "fqsen": "\\Src",
+            "name": "Src",
+            "summary": "",
+            "url": "namespaces/src.html"
         },                {
             "fqsen": "\\App\\Cards",
             "name": "Cards",

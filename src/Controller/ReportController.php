@@ -9,6 +9,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 class ReportController extends AbstractController
 {
     #[Route("/", name: "home", methods: ['GET', 'HEAD'])]

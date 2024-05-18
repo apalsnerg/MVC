@@ -57,6 +57,16 @@
                     <section class="phpdocumentor-sidebar__category">
             <h2 class="phpdocumentor-sidebar__category-header">Namespaces</h2>
                                     <h4 class="phpdocumentor-sidebar__root-namespace">
+    <a href="namespaces/src.html" class="">Src</a>
+</h4>
+    <ul class="phpdocumentor-list">
+                    <li>
+                <a href="namespaces/src-adventure.html" class="">Adventure</a>
+                
+            </li>
+            </ul>
+
+                                    <h4 class="phpdocumentor-sidebar__root-namespace">
     <a href="namespaces/app.html" class="">App</a>
 </h4>
     <ul class="phpdocumentor-list">
@@ -156,7 +166,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -property -public">
     <a href="classes/App-Cards-DeckOfCards.html#property_deck">$deck</a>
     <span>
-                        &nbsp;: array&lt;string|int, string&gt;            </span>
+                        &nbsp;: array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;            </span>
 </dt>
 
     </dl>
@@ -176,7 +186,7 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-DeckOfCards.html#method_draw">draw()</a>
     <span>
-                                &nbsp;: array&lt;string|int, string&gt;    </span>
+                                &nbsp;: array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;    </span>
 </dt>
 <dd>Draws an amount of cards from the deck and removes it.</dd>
 
@@ -185,21 +195,21 @@
     <span>
                                 &nbsp;: int    </span>
 </dt>
-<dd>Method to return the amount of cards in the deck.</dd>
+<dd>Return the amount of cards in the deck.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-DeckOfCards.html#method_returnAllCards">returnAllCards()</a>
     <span>
-                                &nbsp;: array&lt;string|int, string&gt;    </span>
+                                &nbsp;: array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;    </span>
 </dt>
-<dd>Method to return the deck of cards.</dd>
+<dd>Return the deck of cards.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-Cards-DeckOfCards.html#method_shuffle">shuffle()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
-<dd>Method to shuffle all the cards in the deck (randomize indexes).</dd>
+<dd>Shuffles all the cards in the deck (randomize indexes).</dd>
 
     </dl>
 
@@ -239,12 +249,12 @@
     
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-        <span class="phpdocumentor-signature__type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__type">array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;</span>
     <span class="phpdocumentor-signature__name">$deck</span>
      = <span class="phpdocumentor-signature__default-value">[]</span></code>
 
     
-        <section class="phpdocumentor-description"><p>a list of string representations of playing cards</p>
+        <section class="phpdocumentor-description"><p>an array of string representations of playing cards</p>
 </section>
 
     
@@ -311,7 +321,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">draw</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">draw</span><span>(</span><span class="phpdocumentor-signature__argument"><span>[</span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$number</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">1</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -331,7 +341,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>An array of the random cards.</p>
 </section>
@@ -357,7 +367,7 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to return the amount of cards in the deck.</p>
+        <p class="phpdocumentor-summary">Return the amount of cards in the deck.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -397,11 +407,11 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to return the deck of cards.</p>
+        <p class="phpdocumentor-summary">Return the deck of cards.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">returnAllCards</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span></code>
+                    <span class="phpdocumentor-signature__name">returnAllCards</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -411,7 +421,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">array&lt;string|int, string&gt;</span>
+        <span class="phpdocumentor-signature__response_type">array&lt;string|int, <a href="classes/App-Cards-GraphicCard.html"><abbr title="\App\Cards\GraphicCard">GraphicCard</abbr></a>&gt;</span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>An array of all the contained cards.</p>
 </section>
@@ -437,7 +447,7 @@
 
     </aside>
 
-        <p class="phpdocumentor-summary">Method to shuffle all the cards in the deck (randomize indexes).</p>
+        <p class="phpdocumentor-summary">Shuffles all the cards in the deck (randomize indexes).</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>

@@ -12,6 +12,9 @@ use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\RouterInterface;
 
+/**
+ * @codeCoverageIgnore
+ */
 class JSONRouteController extends AbstractController
 {
     #[Route("/api", name: "api", methods: ["GET"])]

@@ -3,7 +3,7 @@
 namespace App\Cards;
 
 /**
- * Class to practice inheritance.
+ * Class to represent a card with a graphic component.
 */
 class GraphicCard extends Card
 {
@@ -12,7 +12,7 @@ class GraphicCard extends Card
 
     /**
      * Method to construct a GraphicCard object.
-     * 
+     *
      * @param string $value the value of the card
      * @param string $suit the suit of the card
      */
@@ -32,11 +32,12 @@ class GraphicCard extends Card
         return $this->graphic;
     }
 
-    /**
+    // DEPRECATED
+    /*
      * Method to turn a string into a GraphicCard,
      *
      * @return object the resulting GraphicCard object
-     */
+
     public function stringToCard(string $str): object
     {
         $str = trim($str, "[]");
@@ -45,4 +46,5 @@ class GraphicCard extends Card
 
         return new GraphicCard($str, $suit);
     }
+    */
 }

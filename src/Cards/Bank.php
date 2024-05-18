@@ -2,6 +2,9 @@
 
 namespace App\Cards;
 
+/**
+ * Class to represent the Bank for the card game.
+ */
 class Bank extends Player
 {
     public function __construct()
@@ -26,7 +29,7 @@ class Bank extends Player
     public function evalAce(): void
     {
         $score = 1;
-        if ($this->score > 6 && $this->score < 10) {
+        if ($this->score > 6 && $this->score < 11) {
             $score = 11;
         }
         $this->score += $score;
