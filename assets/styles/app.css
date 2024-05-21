@@ -10,6 +10,7 @@ body {
     background-color: #145a76;
     margin: 0;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    overflow-x: hidden;
 }
 
 body a {
@@ -352,4 +353,27 @@ h4 {
 
 .upArrow {
     float: left;
+}
+
+.librarySubContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.bookDiv {
+    flex: 0 0 33.3333%;
+}
+
+.bookImage {
+    width: 400px;
+    height: 600px;
+}
+
+figcaption {
+    font-style: italic;
+    border: 1px solid white;
+    border-top: none;
 }

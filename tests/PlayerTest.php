@@ -8,7 +8,7 @@ use TypeError;
 /**
  * Test cases for class Player.
  */
-class PlayersTest extends TestCase
+class PlayerTest extends TestCase
 {
     /**
      * Tests that players and banks can be created.

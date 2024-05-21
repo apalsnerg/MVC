@@ -14,6 +14,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class JSONRouteController extends AbstractController
 {
@@ -91,7 +92,7 @@ class JSONRouteController extends AbstractController
             'Session has been cleared!'
         );
 
-        return $this->redirect("../api");
+        return $this->redirectToRoute("api");
     }
 
     #[Route("api/deck", name:"api_deck", methods: ["GET"])]

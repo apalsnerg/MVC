@@ -12,6 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class DeckController extends AbstractController
 {
@@ -105,7 +106,7 @@ class DeckController extends AbstractController
         $deck->shuffle();
         $session->set("deck", $deck);
 
-        return $this->redirect("../shuffle");
+        return $this->redirectToRoute("shuffle");
     }
 
     #[Route("card/deck/newDeckRedirect", name:"newDeckRedirect", methods:["POST"])]
@@ -116,9 +117,9 @@ class DeckController extends AbstractController
         $session = $request->getSession();
         $session->set("deck", $deck);
         if ($checkbox) {
-            return $this->redirect("shuffle/reset");
+            return $this->redirectToRoute("cardShuffleReset");
         }
-        return $this->redirect("../deck");
+        return $this->redirectToRoute("deck");
     }
 
     #[Route("card/deck/draw", name:"draw", methods: ["GET"])]

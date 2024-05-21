@@ -3,6 +3,7 @@
 namespace Src\Adventure;
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 
 class Actor {

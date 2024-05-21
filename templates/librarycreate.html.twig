@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Birks Sida | MVC | LibraryCreate{% endblock %}
+
+{% block body %}
+
+<main>
+    <div>
+        <form method="post" action="{{ path('libraryCreate') }}" enctype="multipart/form-data">
+            <input type="text" id="isbn" name="isbn" required>
+            <label for="isbn">Bokens isbn</label>
+            <input type="text" id="title" name="title" required>
+            <label for="title">Bokens titel</label>
+            <input type="author" id="author" name="author" required>
+            <label for="author">Skribent</label>
+            <input type="file" id="file" name="file">
+            <label for="file">Bild för boken</label>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</main>
+
+<!-- 
+<main>
+    <div class="libraryCreateDiv">
+        {s{ form_start(form) }}
+            <input
+            name="{s{ field_name(form.author) }}",
+            id="{s{ field_id(form.author) }}"
+            >
+        {s{ form_end(form) }}
+    </div>
+</main>
+-->
+{% endblock %}

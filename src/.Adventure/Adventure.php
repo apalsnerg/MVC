@@ -1,7 +1,10 @@
 <?php
 
 namespace Src\Adventure;
-
+/**
+ * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
+ */
 class Adventure {
     public $player;
     public $enemy;

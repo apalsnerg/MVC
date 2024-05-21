@@ -4,6 +4,8 @@ namespace App\Cards;
 
 use PHPUnit\Framework\TestCase;
 
+$suits = ["♣️", "♦️", "♥️", "♠️"];
+$values = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 /**
  * Test cases for class Bank.
  */
@@ -36,15 +38,45 @@ class BankTest extends TestCase
     {
         $bank = new Bank();
         $bank->score = 9;
-        $bank->evalAce();
+        $card = new GraphicCard("A", "♥️");
+        $bank->evalCard($card);
         $this->assertEquals($bank->getPoints(), 20);
     }
 
+    public function testBankFoldsIfHighScore(): void
+    {
+        $bank = new Bank();
+        $bank->score = 9;
+        $card = new GraphicCard("A", "♥️");
+        $res = $bank->evalCard($card);
+        $this->assertEquals($res, "fold");
+    }
+    
     public function testBankEvalAceLow(): void
     {
         $bank = new Bank();
         $bank->score = 18;
-        $bank->evalAce();
+        $card = new GraphicCard("A", "♥️");
+        $bank->evalCard($card);
         $this->assertEquals($bank->getPoints(), 19);
+    }
+
+    public function testBankDrawsIfLowScore(): void
+    {
+        $bank = new Bank();
+        $bank->score = 3;
+        $card = new GraphicCard("7", "♥️");
+        $res = $bank->evalCard($card);
+        $this->assertEquals($res, "draw");
+    }
+
+    public function testBankAcceptsLetterCards():void
+    {
+        $bank = new Bank();
+        $bank->score = 10;
+        $card = new GraphicCard("Q", "♥️");
+        $res = $bank->evalCard($card);
+        $this->assertEquals($bank->getPoints(), 20);
+        $this->assertEquals($res, "fold");
     }
 }

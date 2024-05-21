@@ -3,6 +3,7 @@
 namespace Src\Adventure;
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class Hero {
     public $backpack = [];
@@ -18,8 +19,10 @@ class Hero {
         $this->health -= $dmg;
     }
     
-    public function attack($weapon) {
-        $prefAttr = $weapon->getPrefAttr();
-        $modifier = 1;
+    public function attack(Weapon $weapon) {
+        $prefAttr = $weapon->prefAttr;
+        $attrModifier = 10;
+        $dmg = rand($weapon->damageMin, $weapon->damageMin);
+        $dmgModifier = $dmg * (1 + $attrModifier/10);
     }
 }

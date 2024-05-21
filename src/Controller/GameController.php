@@ -13,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class GameController extends AbstractController
 {
@@ -85,24 +86,11 @@ class GameController extends AbstractController
         $action = $request->request->get("id");
 
         if ($action == "draw") {
-            return $this->redirect("/game");
+            return $this->redirectToRoute("game");
         } elseif ($action == "fold") {
             /** @var Bank $bank */
-            $bank = $game->players[1];
             $game->fold();
-            while ($bank->score < 20 && $game->turn == 1) {
-                /** @var DeckOfCards $deck */
-                $deck = $game->deck;
-                $card = $deck->draw()[0];
-                if ($card->value == "A") {
-                    $bank->hand->addCard($card);
-                    $bank->evalAce();
-                } elseif ($bank->handEval() == "draw") {
-                    $bank->hand->addCard($card);
-                    $bank->addPoints($card);
-                }
-            }
-            $game->fold();
+            $game->bankTurn();
             $session->set("game", $game);
             $session->set("done", true);
         } elseif ($action == "acehigh") {
@@ -113,7 +101,7 @@ class GameController extends AbstractController
             $session->set("ace", true);
         }
         $session->set("game", $game);
-        return $this->redirect("/game");
+        return $this->redirectToRoute("game");
     }
 
     #[Route("gamedocs", name:"gamedocs", methods: ["GET"])]

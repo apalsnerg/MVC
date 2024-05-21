@@ -4,6 +4,7 @@ namespace Src\Adventure;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class Room {
 /**

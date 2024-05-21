@@ -11,6 +11,7 @@ use Symfony\Component\Routing\RouterInterface;
 
 /**
  * @codeCoverageIgnore
+ * @SuppressWarnings(PHPMD)
  */
 class ReportController extends AbstractController
 {
@@ -82,6 +83,6 @@ class ReportController extends AbstractController
             'Session has been cleared!'
         );
 
-        return $this->redirect("session");
+        return $this->redirectToRoute("session");
     }
 }
