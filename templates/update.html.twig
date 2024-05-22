@@ -1,0 +1,42 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Book{% endblock %}
+
+{% block body %}
+<main class="main">
+    <div class="twoColLayout">
+        <div class="bookDiv leftColEven">
+            <h1>Inspektera {{ book.getTitle }}</h1>
+            <image src="{{ asset('img/' ~ book.getImgName)}}" class="bookImage" alt= {{book.getTitle }}>
+            <p>{{ book.getTitle }}</p>
+            <p>Av {{ book.getAuthor }}</p>
+            <p>ISBN: ({{ book.getIsbn }})</p>
+        </div>
+        <div class="crud rightColEven">
+            <div class="updateFormContainer">
+                <form class="updateForm" enctype="multipart/form-data" method="post" action="updateEval">
+                    <fieldset>
+                        <legend>Ändra boken</legend>
+                        <label for="title">Ändra titel</label>
+                        <input type="text" id="title" name="title" value = "{{ book.getTitle }}" class="libraryInput">
+                        <label for="title">Ändra ISBN</label>
+                        <input type="text" id="title" name="title" value = "{{ book.getIsbn }}" class="libraryInput">
+                        <label for="title">Ändra skribent</label>
+                        <input type="text" id="title" name="title" value = "{{ book.getAuthor }}" class="libraryInput">
+                        <label for="file" class="fileInputLabel">Ändra bild</label>
+                        <input type="file" id="file" name="file" value = "{{ book.getImgName }}" class="libraryInput fileInput">
+                        <button type="submit" value="Submit" class="librarySubmit button">Ändra bok</button>
+                    </fieldset>
+                </form>
+            </div>
+            <hr>
+            <div class="deleteFormContainer">
+                <form class="deleteForm" method="post" action="delEval">
+                    <label for="delInput">Ta bort boken?</label>
+                    <input type="checkbox">
+                    <button type="submit" value="Submit" class="librarySubmit button">Skicka</button>
+            </div>
+        </div>
+</main>
+
+{% endblock %}

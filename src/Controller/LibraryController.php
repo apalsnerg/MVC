@@ -5,12 +5,15 @@ namespace App\Controller;
 use App\Entity\Library;
 use App\Repository\LibraryRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DomCrawler\Form;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
+
+use function PHPUnit\Framework\isNull;
 
 /**
  * @codeCoverageIgnore
@@ -41,13 +44,6 @@ class LibraryController extends AbstractController
     #[Route("/library/create", name: "libraryCreateView", methods: ["GET"])]
     public function libraryCreateView(ManagerRegistry $doctrine): Response
     {
-        #$entityManager = $doctrine->getManager();
-
-        #$book = new Library();
-
-        #$entityManager->persist($book);
-        #$entityManager->flush();
-
         return $this->render("librarycreate.html.twig");
     }
 
@@ -61,7 +57,7 @@ class LibraryController extends AbstractController
         $image = $request->files->get('file');
         if ($image) {
             $image_name = $image->getClientOriginalName();
-            $file = $image->move("../public/img", $image->getClientOriginalName());
+            $image->move("../public/img", $image->getClientOriginalName());
         }
 
         $entityManager = $doctrine->getManager();
@@ -79,8 +75,25 @@ class LibraryController extends AbstractController
     }
 
     #[Route("/library/update", name: "libraryUpdate", methods: ["GET"])]
-    public function libraryUpdate(ManagerRegistry $doctrine, Request $request): Response
+    public function libraryUpdate(LibraryRepository $libraryRepository, ManagerRegistry $doctrine, Request $request): Response
     {
-        return new Response("test123");
-    } 
+        $bookId = $request->query->get("id");
+        if ($bookId === null) {
+            return $this->redirectToRoute("libraryShowAll");
+        }
+        $book = $libraryRepository->find("$bookId");
+        $data = [
+            "book" => $book
+        ];
+        return $this->render("update.html.twig", $data);
+    }
+    
+    #[Route("/library/json", name: "libraryJSON", methods: ["GET"])]
+    public function libraryJSON(LibraryRepository $libraryRepository, ManagerRegistry $doctrine): Response
+    {
+        $library = $libraryRepository->findAll();
+        $response = $this->json($library);
+        $response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
+        return $response;
+    }
 }

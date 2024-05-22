@@ -377,3 +377,56 @@ figcaption {
     border: 1px solid white;
     border-top: none;
 }
+
+.libraryFormContainer {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.libraryForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.libraryInput {
+    width: 500px;
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.fileInputLabel {
+    width: 180px;
+}
+
+.fileInput {
+    padding: 0;
+    width: 300px;
+}
+
+.librarySubmit {
+    align-self: center;
+    width: 30%;
+    margin-top: 20px;
+}
+
+.leftColEven {
+    width: calc(1/2 * 100%);
+    min-height: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin: 0 auto;
+    border-right: 2px solid white;
+    text-align: center;
+}
+
+.rightColEven {
+    width: calc(1/2 * 100%);
+    min-height: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    margin: 0 auto;
+    border-right: 2px solid white;
+    text-align: center;
+}
