@@ -51,7 +51,7 @@ class BankTest extends TestCase
         $res = $bank->evalCard($card);
         $this->assertEquals($res, "fold");
     }
-    
+
     public function testBankEvalAceLow(): void
     {
         $bank = new Bank();
@@ -70,7 +70,7 @@ class BankTest extends TestCase
         $this->assertEquals($res, "draw");
     }
 
-    public function testBankAcceptsLetterCards():void
+    public function testBankAcceptsLetterCards(): void
     {
         $bank = new Bank();
         $bank->score = 10;

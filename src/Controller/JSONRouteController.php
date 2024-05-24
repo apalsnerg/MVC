@@ -2,8 +2,10 @@
 
 namespace App\Controller;
 
-use App\Cards\CardGame;
 use App\Cards\DeckOfCards;
+use App\Repository\LibraryRepository;
+use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,7 +31,7 @@ class JSONRouteController extends AbstractController
         return $this->render("api.html.twig", $data);
     }
 
-    #[Route("/api/quote", name: "api_quote", methods: ["GET"])]
+    #[Route("/api/quote", name: "apiQuote", methods: ["GET"])]
     public function quote(): JsonResponse
     {
         $quotes =
@@ -57,7 +59,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/session", name:"api_session", methods: ["GET"])]
+    #[Route("api/session", name:"apiSession", methods: ["GET"])]
     public function sesh(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -81,7 +83,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/destroy", name:"api_destroy", methods: ["GET"])]
+    #[Route("api/destroy", name:"apiDestroy", methods: ["GET"])]
     public function seshdestroy(Request $request): Response
     {
         $session = $request->getSession();
@@ -95,7 +97,7 @@ class JSONRouteController extends AbstractController
         return $this->redirectToRoute("api");
     }
 
-    #[Route("api/deck", name:"api_deck", methods: ["GET"])]
+    #[Route("api/deck", name:"apiDeck", methods: ["GET"])]
     public function deck(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -124,7 +126,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("/api/deck/shuffle", name:"api_shuffle", methods: ["GET"])]
+    #[Route("/api/deck/shuffle", name:"apiShuffle", methods: ["GET"])]
     public function shuffle(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -162,7 +164,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/reset", name:"api_reset", methods: ["GET"])]
+    #[Route("api/deck/reset", name:"apiReset", methods: ["GET"])]
     public function resetShuffle(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -186,7 +188,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/draw", name:"api_draw", methods: ["GET"])]
+    #[Route("api/deck/draw", name:"apiDraw", methods: ["GET"])]
     public function draw(Request $request): JsonResponse
     {
 
@@ -221,7 +223,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/deck/draw/{number}", name:"api_drawnum", methods: ["GET"])]
+    #[Route("api/deck/draw/{number}", name:"apiDrawnum", methods: ["GET"])]
     public function drawnum(Request $request, int $number = 1): JsonResponse
     {
 
@@ -257,7 +259,7 @@ class JSONRouteController extends AbstractController
         return $response;
     }
 
-    #[Route("api/gamestate", name:"api_gamestate", methods: ["GET"])]
+    #[Route("api/gamestate", name:"apiGamestate", methods: ["GET"])]
     public function gamestate(Request $request): JsonResponse
     {
         if (session_status() != "PHP_SESSION_ACTIVE") {
@@ -280,6 +282,19 @@ class JSONRouteController extends AbstractController
             $response->getEncodingOptions() | JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE
         );
 
+        return $response;
+    }
+
+    #[Route("api/library/books/{isbn}", name: "apiLibrary", methods: ["GET"])]
+    public function libraryJSON(LibraryRepository $libraryRepository, string $isbn = null): Response
+    {
+        $library = $libraryRepository->findAll();
+        if ($isbn) {
+            $bookId = $libraryRepository->getBookIdFromAttribute($isbn);
+            $library = $libraryRepository->find($bookId);
+        }
+        $response = $this->json($library);
+        $response->setEncodingOptions($response->getEncodingOptions() | JSON_PRETTY_PRINT);
         return $response;
     }
 }

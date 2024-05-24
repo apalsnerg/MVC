@@ -18,15 +18,19 @@ class CardGame
 
     /**
      * Constructs the card game.
+     *
+     * @param DeckOfCards $deck the deck to be used
+     *
+     * @param array<Player> $players a list of the player(s) to use
      */
-    public function __construct($deck=null, $players=[])
+    public function __construct(DeckOfCards $deck = null, array $players = [])
     {
         $this->deck = $deck ?? new DeckOfCards();
         $this->players = $players;
-        if (count($players) === 0) {
+        if (count($players) == 0) {
             $this->players[] = new Player();
-            $this->players[] = new Bank();
         }
+        $this->players[] = new Bank();
         $this->turn = 0;
     }
 
@@ -44,7 +48,7 @@ class CardGame
      *
      * @return string the victor
      */
-    public function evalVictor()
+    public function evalVictor(): string
     {
         if ($this->players[1]->score >= $this->players[0]->score && $this->players[1]->score < 22) {
             return "bank";
@@ -64,7 +68,8 @@ class CardGame
     /**
      * Take the bank's turn.
      */
-    public function bankTurn() {
+    public function bankTurn(): void
+    {
         /** @var Bank $bank */
         $bank = $this->players[1];
         while (true) {
@@ -76,16 +81,6 @@ class CardGame
             if ($res === "fold") {
                 break;
             }
-
-            /*
-            if ($card->value == "A") {
-                $bank->hand->addCard($card);
-                $bank->evalAce();
-            } else {
-                $bank->hand->addCard($card);
-                $bank->addPoints($card);
-            }
-            */
         }
         $this->fold();
     }

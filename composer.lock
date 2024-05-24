@@ -4044,16 +4044,16 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v7.0.3",
+            "version": "v7.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "295995df4acf6790a35b9ce6ec32b313efb11ff8"
+                "reference": "dd12042707110995e2e7d80103f8d9928bea8621"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/295995df4acf6790a35b9ce6ec32b313efb11ff8",
-                "reference": "295995df4acf6790a35b9ce6ec32b313efb11ff8",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/dd12042707110995e2e7d80103f8d9928bea8621",
+                "reference": "dd12042707110995e2e7d80103f8d9928bea8621",
                 "shasum": ""
             },
             "require": {
@@ -4070,7 +4070,8 @@
                     "Symfony\\Component\\Intl\\": ""
                 },
                 "exclude-from-classmap": [
-                    "/Tests/"
+                    "/Tests/",
+                    "/Resources/data/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4106,7 +4107,7 @@
                 "localization"
             ],
             "support": {
-                "source": "https://github.com/symfony/intl/tree/v7.0.3"
+                "source": "https://github.com/symfony/intl/tree/v7.0.7"
             },
             "funding": [
                 {
@@ -4122,7 +4123,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2024-01-23T15:02:46+00:00"
+            "time": "2024-04-18T09:29:19+00:00"
         },
         {
             "name": "symfony/mailer",

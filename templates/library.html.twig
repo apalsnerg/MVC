@@ -4,19 +4,19 @@
 
 {% block body %}
 <main>
-
-<div class="">
-    <h1>Välkommen till biblioteket!</h1>
-    <p>
-        Från denna portal kan du välja bland att vidarebefodras antingen till hela urvalet av böcker,
-        till där du kan skapa en ny bok, eller till att se alla böcker i ett JSON-format.<br>
-        Från det hela bibloteket kan du välja en enskild bok för att se dess detaljer enskilt,
-        uppdatera den, eller ta bort den.
-    </p>
-    <ul>
-        <li><a href={{ path("libraryShowAll") }}>Se alla böcker</li>
-        <li><a href={{ path("libraryCreate") }}>Skapa ny bok</li>
-        <li><a href={{ path("libraryJSON") }}>Se JSON-bibliotek</li>
-</div>
+    <div class="libraryIntroDiv">
+        <h1>Välkommen till biblioteket!</h1>
+        <p>
+            Från denna portal kan du välja bland att vidarebefodras antingen till hela urvalet av böcker,
+            till där du kan skapa en ny bok, eller till att se alla böcker i ett JSON-format.<br>
+            Från det hela bibloteket kan du välja en enskild bok för att se dess detaljer enskilt,
+            uppdatera den, eller ta bort den.
+        </p>
+        <ul>
+            <li><a href={{ path("libraryShowAll") }}>Se alla böcker</li>
+            <li><a href={{ path("libraryCreateView") }}>Skapa ny bok</li>
+            <li><a href={{ path("apiLibrary") }}>Se biblioteket i JSON-format</li>
+        </ul>
+    </div>
 </main>
 {% endblock %}

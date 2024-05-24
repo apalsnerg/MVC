@@ -1,0 +1,57 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Book{% endblock %}
+
+{% block body %}
+<main class="main">
+    <div class="twoColLayout">
+        <div class="bookDiv leftColEven">
+            <h1>{{ book.getTitle }}</h1>
+            <image src="{{ asset('img/' ~ book.getImgName)}}" class="bookImage" alt= {{book.getTitle }}>
+            <p>Titel: {{ book.getTitle }}</p>
+            <p>Av: {{ book.getAuthor }}</p>
+            <p>ISBN: ({{ book.getIsbn }})</p>
+        </div>
+        <div class="crud rightColEven">
+            <div class="updateFormContainer">
+                <form class="updateForm" enctype="multipart/form-data" method="post" action="{{ path('libraryUpdate') }}">
+                    <fieldset>
+                        <legend>Ändra boken</legend>
+                        <label for="title">Ändra titel</label>
+                        <input type="text" id="title" name="title" value = "{{ book.getTitle }}" class="libraryInput">
+                        <br>
+                        <label for="isbn">Ändra ISBN</label>
+                        <input type="text" id="isbn" name="isbn" value = "{{ book.getIsbn }}" class="libraryInput">
+                        <br>
+                        <label for="author">Ändra skribent</label>
+                        <input type="text" id="author" name="author" value = "{{ book.getAuthor }}" class="libraryInput">
+                        <br>
+                        <label for="file" class="fileInputLabel">Ändra bild</label>
+                        <input type="file" id="file" name="file" class="libraryInput fileInput">
+                        <input type="hidden" id="id" name="id" value = "{{ book.getId }}">
+                        <input type="hidden" id="image" name="image" value = "{{ book.getImgName }}">
+                        <br>
+                        <button type="submit" value="Submit" class="librarySubmit button">Ändra bok</button>
+                    </fieldset>
+                </form>
+            </div>
+            <hr>
+            <div class="deleteFormContainer">
+                <h3>Här nedan kan du ta bort denna bok från bibloteket.</h3>
+                <form class="deleteForm" method="post" action="{{ path('libraryDelete') }}">
+                    <span>
+                        <label for="delInput">Är du säker?</label>
+                    </span>
+                    <span>
+                        <input type="checkbox">
+                    </span>
+                    <br>
+                    <input type="hidden" value="{{ book.getId }}" name="id">
+                    <button type="submit" value="Submit" class="librarySubmit delButton button">Ta bort boken</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}

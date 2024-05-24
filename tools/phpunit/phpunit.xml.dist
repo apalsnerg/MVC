@@ -27,6 +27,9 @@
         <include>
             <directory suffix=".php">src</directory>
         </include>
+        <logging>
+            <junit outputFile="docs/junit.xml" />
+        </logging>
         <report>
           <clover outputFile="docs/coverage.clover"/>
           <html outputDirectory="docs/coverage" lowUpperBound="35" highLowerBound="70"/>
@@ -36,6 +39,7 @@
     <listeners>
         <listener class="Symfony\Bridge\PhpUnit\SymfonyTestsListener" />
     </listeners>
+
 
     <!-- Run `composer require symfony/panther` before enabling this extension -->
     <!--

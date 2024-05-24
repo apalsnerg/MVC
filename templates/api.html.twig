@@ -10,15 +10,17 @@
         </p>
         <ul class="apiList">
             <li> <a href="{{ path('api') }}">/api</a> - Denna sida.</li>
-            <li> <a href="{{ path('api_quote') }}">/api/quote</a> - Få ett slumpmässigt citat.</li>
-            <li> <a href="{{ path('api_session') }}">/api/session</a> - Få information om sessionen.</li>
-            <li> <a href="{{ path('api_destroy') }}">/api/destroy</a> - Förinta sessionen.</li>
-            <li> <a href="{{ path('api_deck') }}">/api/deck</a> - Visa upp en kortlek.</li>
-            <li> <a href="{{ path('api_shuffle') }}">/api/shuffle</a> - Kasta om kortleken.</li>
-            <li> <a href="{{ path('api_reset') }}">/api/reset</a> - Återställ kortleken.</li>
-            <li> <a href="{{ path('api_draw') }}">/api/deck/draw</a> - Drag ett kort från kortleken.</li>
-            <li> <a href="{{ path('api_drawnum') }}">/api/deck/draw/{number}</a> - Drag {number} kort från kortleken.</li>
-            <li> <a href="{{ path('api_gamestate') }}">/api/gamestate</a> - Visa status av kortleksspelet.</li>
+            <li> <a href="{{ path('apiQuote') }}">/api/quote</a> - Få ett slumpmässigt citat.</li>
+            <li> <a href="{{ path('apiSession') }}">/api/session</a> - Få information om sessionen.</li>
+            <li> <a href="{{ path('apiDestroy') }}">/api/destroy</a> - Förinta sessionen.</li>
+            <li> <a href="{{ path('apiDeck') }}">/api/deck</a> - Visa upp en kortlek.</li>
+            <li> <a href="{{ path('apiShuffle') }}">/api/shuffle</a> - Kasta om kortleken.</li>
+            <li> <a href="{{ path('apiReset') }}">/api/reset</a> - Återställ kortleken.</li>
+            <li> <a href="{{ path('apiDraw') }}">/api/deck/draw</a> - Drag ett kort från kortleken.</li>
+            <li> <a href="{{ path('apiDrawnum') }}">/api/deck/draw/{number}</a> - Drag {number} kort från kortleken.</li>
+            <li> <a href="{{ path('apiGamestate') }}">/api/gamestate</a> - Visa status av kortleksspelet.</li>
+            <li> <a href="{{ path('apiLibrary') }}">/api/books</a> - Visa alla böcker i biblioteket.</li>
+            <li> <a href="{{ path('apiLibrary') }}">/api/books/{ISBN}</a> - Visa en särskild bok utefter ett av dess attribut, t.ex. ISBN eller titel.</li>
         </ul>
         {% for label, messages in app.flashes %}
             {% for message in messages %}

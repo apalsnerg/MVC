@@ -8,14 +8,15 @@ namespace Src\Adventure;
 class Adventure {
     public $player;
     public $enemy;
-    public $rooms = [];
+    public $rooms;
     
-    public function __construct() {
-    $this->player = new Hero();
+    public function __construct(Hero $player = null) {
+    $this->player = $player ?? "";
     $this->enemy = new Enemy();
-    $this->rooms[] = new Entrance();
-    $this->rooms[] = new Pathway();
-    $this->rooms[] = new Encounter();
-    $this->rooms[] = new Goal();
+    $this->rooms = new RoomManager();
+    }
+
+    public function attack($target, $damage) {
+        $target->health -= $damage;
     }
 }

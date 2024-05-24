@@ -5,24 +5,30 @@ namespace Src\Adventure;
  * @codeCoverageIgnore
  * @SuppressWarnings(PHPMD)
  */
-class Hero {
+class Hero extends Character {
     public $backpack = [];
-    public $health;
-    public $name;
-    public $equipped;
-    public $stats= [];
     
-    public function __construct() {
+    /**
+     * Constructs a Hero.
+     * 
+     * @param array<mixed> $stats 
+     */
+    public function __construct($stats) {
+        parent::__construct($stats);
     }
     
     public function takeDamage($dmg) {
         $this->health -= $dmg;
     }
     
-    public function attack(Weapon $weapon) {
+    public function getCharDealtDamage(Weapon $weapon) {
         $prefAttr = $weapon->prefAttr;
         $attrModifier = 10;
-        $dmg = rand($weapon->damageMin, $weapon->damageMin);
-        $dmgModifier = $dmg * (1 + $attrModifier/10);
+        $dmgModifier = floor(((($this->stats[$prefAttr] * 10) / 4) / 5));
+        if ($this->stats[$prefAttr] === 10) {
+            $dmgModifier = 4;
+        }
+        $dmgRaw = $weapon->getDamageNumber();
+        $dmg = $dmgRaw + $dmgModifier;
     }
 }

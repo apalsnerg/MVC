@@ -88,7 +88,6 @@ class GameController extends AbstractController
         if ($action == "draw") {
             return $this->redirectToRoute("game");
         } elseif ($action == "fold") {
-            /** @var Bank $bank */
             $game->fold();
             $game->bankTurn();
             $session->set("game", $game);

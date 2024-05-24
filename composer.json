@@ -103,7 +103,8 @@
         "phpunit-full": [
             "@phpunit",
             "@phpunit-html"
-        ]
+        ],
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json"
         
     },
     "conflict": {

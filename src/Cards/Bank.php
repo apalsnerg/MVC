@@ -49,10 +49,10 @@ class Bank extends Player
             if ($this->score > 6 && $this->score < 11) {
                 $score = 11;
             }
-        } else if (in_array($card->value, ["J", "Q", "K"])) {
+        } elseif (in_array($card->value, ["J", "Q", "K"])) {
             $score = 10;
         }
-        $this->score += $score;
+        $this->score += intval($score);
         if ($this->score < 18) {
             return "draw";
         }

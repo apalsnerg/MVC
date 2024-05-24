@@ -13,8 +13,13 @@ body {
     overflow-x: hidden;
 }
 
+body ul li {
+    list-style-type: none;
+}
+
 body a {
     color: white;
+    text-decoration: underline;
 }
 
 main {
@@ -41,21 +46,23 @@ h3 {
 }
 
 header {
-    font-family: 'Times New Roman', Times, serif;
-    padding: 2rem;
-    font-size: 2rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    font-family: 'Times New Roman', Times, serif;
+    width: 100%;
+    padding: 2rem;
+    font-size: 2rem;
     border-bottom: 2px solid bisque;
     color: white;
     text-align: center;
     background: linear-gradient(skyblue, #145a76) !important;
 }
 
-a {
+header a {
     text-decoration: none;
 }
+
 
 .siteTitle {
     font-size: 2.4rem;
@@ -364,7 +371,9 @@ h4 {
 }
 
 .bookDiv {
+    display: flex;
     flex: 0 0 33.3333%;
+    text-align: center;
 }
 
 .bookImage {
@@ -374,8 +383,18 @@ h4 {
 
 figcaption {
     font-style: italic;
-    border: 1px solid white;
+    border: 2px solid white;
     border-top: none;
+}
+
+.bookFigCaption {
+    margin-top: -6px;
+    width: 396px;
+}
+
+.libraryIntroDiv li {
+    margin-top: 20px;
+    font-size: 30px;
 }
 
 .libraryFormContainer {
@@ -412,6 +431,9 @@ figcaption {
 }
 
 .leftColEven {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: calc(1/2 * 100%);
     min-height: 100%;
     padding-right: 1rem;
@@ -429,4 +451,12 @@ figcaption {
     margin: 0 auto;
     border-right: 2px solid white;
     text-align: center;
+}
+
+.deleteForm {
+    margin-top: 150px;
+}
+
+.delButton {
+    background-color: darkred;
 }

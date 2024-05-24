@@ -36,7 +36,7 @@
 
     <rule ref="rulesets/naming.xml/ShortMethodName">
         <properties>
-            <property name="exceptions" value="t,e" />
+            <property name="exceptions" value="t,e,up" />
         </properties>
     </rule>
 

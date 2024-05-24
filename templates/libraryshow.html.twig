@@ -13,14 +13,14 @@
                     {% if book.getImgName %}
                     <figure>
                         <image src="{{ asset('img/' ~ book.getImgName)}}" class="bookImage" alt= {{book.getTitle }}>
-                        <figcaption>
-                            <a href="{{ path('libraryUpdate') ~ "?id=" ~ book.getId}} ">{{book.getTitle }} ({{ book.getIsbn}})</a>
+                        <figcaption class="bookFigCaption">
+                            <a href="{{ path('libraryUpdateView') ~ "?id=" ~ book.getId}} ">{{book.getTitle }} ({{ book.getIsbn}})</a>
                             <br>
                             -- {{ book.getAuthor }}
                         </figcaption>
                     </figure>
                     {% else %}
-                        <a href="{{ path('libraryUpdate') ~ "?id=" ~ book.getId}} ">{{book.getTitle }} ({{ book.getIsbn}})</a>
+                        <a href="{{ path('libraryUpdateView') ~ "?id=" ~ book.getId}} ">{{book.getTitle }} ({{ book.getIsbn}})</a>
                     {% endif %}
                 </div>
                 {% set count = count + 1 %}
