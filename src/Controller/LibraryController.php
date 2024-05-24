@@ -68,7 +68,7 @@ class LibraryController extends AbstractController
         /** @var UploadedFile $image */
         $image = $request->files->get('file');
 
-        if (! $image instanceof UploadedFile) {
+        if ($image instanceof UploadedFile) {
             $imageName = $image->getClientOriginalName();
             $image->move("../public/img", $image->getClientOriginalName());
         }
@@ -124,7 +124,7 @@ class LibraryController extends AbstractController
         /** @var Library $book */
         $book = $entityManager->getRepository(Library::class)->find($bookId);
 
-        if (! $image instanceof UploadedFile) {
+        if ($image instanceof UploadedFile) {
             if ($image->getClientOriginalName() != $book->getImgName()) {
                 $filesystem = new Filesystem();
                 $path = $kernel->getProjectDir() . "/public/img/" . $imageName;

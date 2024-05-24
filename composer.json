@@ -100,9 +100,11 @@
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
         "phpunit": "XDEBUG_MODE=coverage bin/phpunit --coverage-text tests/",
         "phpunit-html": "XDEBUG_MODE=coverage bin/phpunit --coverage-html docs/coverage",
+        "phpunit-xml": "XDEBUG_MODE=coverage bin/phpunit --coverage-xml docs/coverage",
         "phpunit-full": [
             "@phpunit",
-            "@phpunit-html"
+            "@phpunit-html",
+            "@phpunit-xml"
         ],
         "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json"
         

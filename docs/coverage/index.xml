@@ -1,0 +1,241 @@
+<?xml version="1.0"?>
+<phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
+  <build time="Fri May 24 15:27:32 UTC 2024" phpunit="9.6.19" coverage="9.2.31">
+    <runtime name="PHP" version="8.3.7" url="https://secure.php.net/"/>
+    <driver name="xdebug" version="3.3.2"/>
+  </build>
+  <project source="/home/apalsnerg/dbwebb/mvc/me/report/src">
+    <tests>
+      <test name="App\Cards\BankTest::testCreateBank" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankEvalsDraw" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankEvalsFold" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankEvalAceHigh" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankFoldsIfHighScore" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankEvalAceLow" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankDrawsIfLowScore" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\BankTest::testBankAcceptsLetterCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testCreateRandomBasicCard" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testCreateGivenCard" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testCreateCardInvalidValueStr" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testCreateCardInvalidSuitStr" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testGetValue" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\CardTest::testGetSuit" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\DeckTest::testCreatedeck" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\DeckTest::testShuffle" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\DeckTest::testDrawNegative" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\DeckTest::testDrawTooManyCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testGameCreatable" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testFoldTurnIncrement" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testEqualBankWins" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBankWinsPlayerTooMuch" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBankWinsIfMore" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBankMoreButTooMuchLoses" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testPlayerWinsIfMore" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBothLose" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBankTurnRandom" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GameTest::testBankTurnAddsCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GraphicCardTest::testCreateRandomGraphicCard" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\GraphicCardTest::testGetGraphic" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\HandTest::testCreateHand" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\HandTest::testGetGraphics" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\HandTest::testGetCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\HandTest::testAddCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\HandTest::testAddNegativeCards" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testCreatePlayer" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testCreatePlayerWrongIdentifier" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testAddPoints" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testAceLow" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testAceHigh" size="unknown" result="0" status="PASSED"/>
+      <test name="App\Cards\PlayerTest::testAceWrongStringException" size="unknown" result="0" status="PASSED"/>
+    </tests>
+    <directory name="/">
+      <totals>
+        <lines total="1552" comments="293" code="1259" executable="106" executed="106" percent="100.00"/>
+        <methods count="25" tested="25" percent="100.00"/>
+        <functions count="0" tested="0" percent="0"/>
+        <classes count="7" tested="7" percent="100.00"/>
+        <traits count="0" tested="0" percent="0"/>
+      </totals>
+      <directory name="Cards">
+        <totals>
+          <lines total="513" comments="202" code="311" executable="106" executed="106" percent="100.00"/>
+          <methods count="25" tested="25" percent="100.00"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="7" tested="7" percent="100.00"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="Bank.php" href="Cards/Bank.php.xml">
+          <totals>
+            <lines total="62" comments="23" code="39" executable="15" executed="15" percent="100.00"/>
+            <methods count="3" tested="3" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="Card.php" href="Cards/Card.php.xml">
+          <totals>
+            <lines total="62" comments="19" code="43" executable="14" executed="14" percent="100.00"/>
+            <methods count="3" tested="3" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="CardGame.php" href="Cards/CardGame.php.xml">
+          <totals>
+            <lines total="88" comments="26" code="62" executable="26" executed="26" percent="100.00"/>
+            <methods count="4" tested="4" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="CardHand.php" href="Cards/CardHand.php.xml">
+          <totals>
+            <lines total="60" comments="24" code="36" executable="9" executed="9" percent="100.00"/>
+            <methods count="4" tested="4" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="DeckOfCards.php" href="Cards/DeckOfCards.php.xml">
+          <totals>
+            <lines total="78" comments="23" code="55" executable="21" executed="21" percent="100.00"/>
+            <methods count="5" tested="5" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="GraphicCard.php" href="Cards/GraphicCard.php.xml">
+          <totals>
+            <lines total="51" comments="30" code="21" executable="3" executed="3" percent="100.00"/>
+            <methods count="2" tested="2" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="Player.php" href="Cards/Player.php.xml">
+          <totals>
+            <lines total="112" comments="57" code="55" executable="18" executed="18" percent="100.00"/>
+            <methods count="4" tested="4" percent="100.00"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="1" tested="1" percent="100.00"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Controller">
+        <totals>
+          <lines total="871" comments="52" code="819" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="AdventureController.php" href="Controller/AdventureController.php.xml">
+          <totals>
+            <lines total="23" comments="4" code="19" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="DeckController.php" href="Controller/DeckController.php.xml">
+          <totals>
+            <lines total="186" comments="11" code="175" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="GameController.php" href="Controller/GameController.php.xml">
+          <totals>
+            <lines total="112" comments="7" code="105" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="JSONRouteController.php" href="Controller/JSONRouteController.php.xml">
+          <totals>
+            <lines total="301" comments="8" code="293" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="LibraryController.php" href="Controller/LibraryController.php.xml">
+          <totals>
+            <lines total="160" comments="17" code="143" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+        <file name="ReportController.php" href="Controller/ReportController.php.xml">
+          <totals>
+            <lines total="89" comments="5" code="84" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Entity">
+        <totals>
+          <lines total="86" comments="4" code="82" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="Library.php" href="Entity/Library.php.xml">
+          <totals>
+            <lines total="86" comments="4" code="82" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <directory name="Repository">
+        <totals>
+          <lines total="70" comments="35" code="35" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+        <file name="LibraryRepository.php" href="Repository/LibraryRepository.php.xml">
+          <totals>
+            <lines total="70" comments="35" code="35" executable="0" executed="0" percent="0"/>
+            <methods count="0" tested="0" percent="0"/>
+            <functions count="0" tested="0" percent="0"/>
+            <classes count="0" tested="0" percent="0"/>
+            <traits count="0" tested="0" percent="0"/>
+          </totals>
+        </file>
+      </directory>
+      <file name="Kernel.php" href="Kernel.php.xml">
+        <totals>
+          <lines total="12" comments="0" code="12" executable="0" executed="0" percent="0"/>
+          <methods count="0" tested="0" percent="0"/>
+          <functions count="0" tested="0" percent="0"/>
+          <classes count="0" tested="0" percent="0"/>
+          <traits count="0" tested="0" percent="0"/>
+        </totals>
+      </file>
+    </directory>
+  </project>
+</phpunit>
