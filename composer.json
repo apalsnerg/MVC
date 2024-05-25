@@ -100,11 +100,13 @@
         "phpdoc": "tools/phpdoc/phpdoc --config=tools/phpdoc/phpdoc.xml",
         "phpunit": "XDEBUG_MODE=coverage bin/phpunit --coverage-text tests/",
         "phpunit-html": "XDEBUG_MODE=coverage bin/phpunit --coverage-html docs/coverage",
-        "phpunit-xml": "XDEBUG_MODE=coverage bin/phpunit --coverage-xml docs/coverage",
+        "phpunit-xml": "XDEBUG_MODE=coverage bin/phpunit --log-junit 'docs/junit.xml' --coverage-xml docs/coverage",
+        "phpunit-clover": "XDEBUG_MODE=coverage bin/phpunit --coverage-clover 'docs/coverage.clover'",
         "phpunit-full": [
             "@phpunit",
             "@phpunit-html",
-            "@phpunit-xml"
+            "@phpunit-xml",
+            "@phpunit-clover"
         ],
         "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json"
         

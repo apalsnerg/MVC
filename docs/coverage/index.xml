@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <phpunit xmlns="https://schema.phpunit.de/coverage/1.0">
-  <build time="Fri May 24 15:27:32 UTC 2024" phpunit="9.6.19" coverage="9.2.31">
+  <build time="Sat May 25 22:30:55 UTC 2024" phpunit="9.6.19" coverage="9.2.31">
     <runtime name="PHP" version="8.3.7" url="https://secure.php.net/"/>
     <driver name="xdebug" version="3.3.2"/>
   </build>
@@ -50,7 +50,7 @@
     </tests>
     <directory name="/">
       <totals>
-        <lines total="1552" comments="293" code="1259" executable="106" executed="106" percent="100.00"/>
+        <lines total="1552" comments="296" code="1256" executable="106" executed="106" percent="100.00"/>
         <methods count="25" tested="25" percent="100.00"/>
         <functions count="0" tested="0" percent="0"/>
         <classes count="7" tested="7" percent="100.00"/>
@@ -130,7 +130,7 @@
       </directory>
       <directory name="Controller">
         <totals>
-          <lines total="871" comments="52" code="819" executable="0" executed="0" percent="0"/>
+          <lines total="871" comments="55" code="816" executable="0" executed="0" percent="0"/>
           <methods count="0" tested="0" percent="0"/>
           <functions count="0" tested="0" percent="0"/>
           <classes count="0" tested="0" percent="0"/>
@@ -174,7 +174,7 @@
         </file>
         <file name="LibraryController.php" href="Controller/LibraryController.php.xml">
           <totals>
-            <lines total="160" comments="17" code="143" executable="0" executed="0" percent="0"/>
+            <lines total="160" comments="20" code="140" executable="0" executed="0" percent="0"/>
             <methods count="0" tested="0" percent="0"/>
             <functions count="0" tested="0" percent="0"/>
             <classes count="0" tested="0" percent="0"/>

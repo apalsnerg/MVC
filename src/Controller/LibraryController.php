@@ -126,9 +126,9 @@ class LibraryController extends AbstractController
 
         if ($image instanceof UploadedFile) {
             if ($image->getClientOriginalName() != $book->getImgName()) {
-                $filesystem = new Filesystem();
-                $path = $kernel->getProjectDir() . "/public/img/" . $imageName;
-                $filesystem->remove($path);
+                //$filesystem = new Filesystem();
+                //$path = $kernel->getProjectDir() . "/public/img/" . $imageName;
+                //$filesystem->remove($path);
                 $imageName = $image->getClientOriginalName();
                 $image->move("../public/img", $image->getClientOriginalName());
             }
