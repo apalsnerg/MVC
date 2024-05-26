@@ -67,13 +67,11 @@
         <covered by="App\Cards\BankTest::testBankEvalAceHigh"/>
         <covered by="App\Cards\BankTest::testBankFoldsIfHighScore"/>
         <covered by="App\Cards\BankTest::testBankEvalAceLow"/>
-        <covered by="App\Cards\GameTest::testBankTurnAddsCards"/>
       </line>
       <line nr="49">
         <covered by="App\Cards\BankTest::testBankEvalAceHigh"/>
         <covered by="App\Cards\BankTest::testBankFoldsIfHighScore"/>
         <covered by="App\Cards\BankTest::testBankEvalAceLow"/>
-        <covered by="App\Cards\GameTest::testBankTurnAddsCards"/>
       </line>
       <line nr="50">
         <covered by="App\Cards\BankTest::testBankEvalAceHigh"/>
@@ -88,6 +86,7 @@
       <line nr="53">
         <covered by="App\Cards\BankTest::testBankAcceptsLetterCards"/>
         <covered by="App\Cards\GameTest::testBankTurnRandom"/>
+        <covered by="App\Cards\GameTest::testBankTurnAddsCards"/>
       </line>
       <line nr="55">
         <covered by="App\Cards\BankTest::testBankEvalAceHigh"/>
