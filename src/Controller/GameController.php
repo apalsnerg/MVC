@@ -47,7 +47,7 @@ class GameController extends AbstractController
         $ace = false;
         $done = $session->get("done");
 
-        if (!$session->get("ace")) {
+        if (!$session->get("ace") && $session->get("turn")) {
             if ($game->turn == 0 && $game->players[0]->score < 22) {
                 /** @var DeckOfCards $deck */
                 $deck = $game->deck;
@@ -62,6 +62,7 @@ class GameController extends AbstractController
                 }
             }
         }
+        $session->set("turn", false);
         $session->set("ace", false);
         $data = [
             "player1" => $game->players[0]->hand->getCardGraphics(),
@@ -86,6 +87,7 @@ class GameController extends AbstractController
         $action = $request->request->get("id");
 
         if ($action == "draw") {
+            $session->set("turn", true);
             return $this->redirectToRoute("game");
         } elseif ($action == "fold") {
             $game->fold();

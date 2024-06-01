@@ -1,27 +1,33 @@
 <?php
 
-namespace Src\Adventure;
+namespace App\Adventure;
 
-class AdventureDictionary {
-
+class AdventureDictionary
+{
+    /** @var array<string> $destroyWords */
     public $destroyWords;
 
+    /** @var array<string> $takeWords */
     public $takeWords;
 
+    /** @var array<string> $perceptionWords */
     public $perceptionWords;
 
-    public $observeWords;
+    /** @var array<string> $lookWords */
+    public $lookWords;
 
+    /** @var array<string> $moveWords */
     public $moveWords;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->destroyWords = ["hit", "punch", "kick", "attack", "destroy", "annihilate", "ora ora", "muda muda", "crush", "break", "swing at"];
-    
+
         $this->takeWords = ["grab", "take", "pick up", "steal", "yoink", "nab", "snatch"];
-    
+
         $this->perceptionWords = ["perceive", "look around", "peer", ];
-    
-        $this->observeWords = ["stare at", "look at", "gaze at"];
+
+        $this->lookWords = ["stare at", "look at", "gaze at"];
 
         $this->moveWords = ["move", "go", "translocate", "walk", "run", "sprint", "jog"];
     }

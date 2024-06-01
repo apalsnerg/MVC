@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Birks sida | MVC | Metrics{% endblock %}
+
+{% block body %}
+
+<main>
+    <div class="metricsContainer">
+        <h2>Introduktion</h2>
+        <div class="metricsText">
+
+        </div>
+        <hr>
+        <h2>PHPMetrics</h2>
+        <div class="metricsText">
+            <div class="metricsImgContainer">
+                <img class="phpmetricsImage" src="{{ asset('img/phpmetrics.png') }}" 
+                    alt="PHPMetrics results">
+                <img class="phpmetricsImage" src="{{ asset('img/phpmetrics_violations.png') }}"
+                    alt="PHPMetrics violations">
+            </div>
+            <p>Låt oss gå över de fel som upptäckts av PHPMetrics.</p>
+            <ul>
+                <li>
+                    <p>
+                        "Probably bugged" - LibraryController, Deckcontroller,
+                        och JSONRouteController
+                    </p>
+                    <p>
+                        Detta fel är troligtvis inte en indikation med något fel i koden i sig;
+                        det verkar som att den bara detekterar att det inte finns något
+                        testcase för klassen, vilket inte är oförväntat.
+                    </p>
+                </li>
+                <li>
+                    <p>Blob Object - JSONRouteController</p>
+                    <p>
+                        Denna violation orsakas helt enkelt av att jag lagt in för många klasser
+                        i den. Detta kan enkelt lösas genom att bryta ut vissa routes, t.ex. de
+                        routes som visar upp kortleken i JSON-format i sin egen Controller.
+                        PHPMetrics anser också att denna klass har en för hög LCOM, vilket inte
+                        är ett relevant, eller troligtvis ens möjligt, förbättringsområde, eftersom
+                        det inte direkt är meningen att routesen - som ju är metoder i Controller-
+                        klassen - skall hänga ihop. 
+                    </p>
+                </li>
+                <li>
+                    <p>Stable Abstractions Principle - App\Entity, App\Cards</p>
+                    <p>
+                        PHPMetrics anser att dessa namespaces - eller packages -
+                        är instabila och abstrakta.
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        
+                    </p>
+                </li>
+            </ul>
+        </div>
+        <hr>
+        <h2>Scrutinizer</h2>
+        <div class="metricsText">
+
+        </div>
+        <hr>
+        <h2>Förbättringar</h2>
+        <div class="metricsText">
+
+        </div>
+        <hr>
+        <h2>Diskussion</h2>
+        <div class="metricsText">
+
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -24,7 +24,7 @@ use function PHPUnit\Framework\isNull;
  */
 class LibraryController extends AbstractController
 {
-    #[Route("/library", name: "library")]
+    #[Route("/library", name: "library", methods: ["GET"])]
     public function library(): Response
     {
         return $this->render('library.html.twig', [
@@ -32,7 +32,7 @@ class LibraryController extends AbstractController
         ]);
     }
 
-    #[Route("/library/show", name: "libraryShowAll")]
+    #[Route("/library/show", name: "libraryShowAll", methods: ["GET"])]
     public function showAllProduct(LibraryRepository $libraryRepository): Response
     {
         $library = $libraryRepository->findAll();
@@ -45,7 +45,7 @@ class LibraryController extends AbstractController
 
 
     #[Route("/library/create", name: "libraryCreateView", methods: ["GET"])]
-    public function libraryCreateView(ManagerRegistry $doctrine): Response
+    public function libraryCreateView(): Response
     {
         return $this->render("librarycreate.html.twig");
     }
@@ -117,7 +117,7 @@ class LibraryController extends AbstractController
         /** @var string $imageName */
         $imageName = $request->request->get("image");
 
-        /** @var  UploadedFile $image */
+        /** @var UploadedFile $image */
         $image = $request->files->get('file');
 
         $entityManager = $doctrine->getManager();

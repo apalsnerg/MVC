@@ -1,11 +1,11 @@
 <?php
 
-namespace Src\Adventure;
+namespace App\Adventure\Room;
 
 /**
  * @codeCoverageIgnore
  * @SuppressWarnings(PHPMD)
  */
-class Encounter extends Room {
-
+class EncounterLeft extends Room
+{
 }

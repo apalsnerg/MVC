@@ -1,12 +1,11 @@
 <?php
 
-namespace Src\Adventure;
+namespace App\Adventure\Room;
 
 /**
  * @codeCoverageIgnore
  * @SuppressWarnings(PHPMD)
  */
-class Shop extends Room {
-
+class Shop extends Room
+{
 }
-

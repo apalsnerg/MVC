@@ -27,7 +27,7 @@ class HandTest extends TestCase
         $cardGraphics = $hand->getCardGraphics();
         $cards = $hand->getCards();
         $length = count($cards);
-        for($i = 0; $i < $length; $i++) {
+        for ($i = 0; $i < $length; $i++) {
             $this->assertEquals($cardGraphics[$i], $cards[$i]->graphic());
         }
     }

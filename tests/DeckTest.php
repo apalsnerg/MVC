@@ -33,7 +33,7 @@ class DeckTest extends TestCase
         // Theoretically not a complete test, but it is statistically not possible for the
         // deck to be shuffled and remain the same, as the probability is 52 factorial.
         // Unknown but possible that that is forbidden by the PHP shuffle() function anyway.
-        for($i = 0; $i < $deck->getLength(); $i++) {
+        for ($i = 0; $i < $deck->getLength(); $i++) {
             if ($deckList[$i] != $shuffledList[$i]) {
                 $shuffled = true;
             }

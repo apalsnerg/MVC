@@ -301,6 +301,8 @@ footer {
 }
 
 .playSpace {
+    height: 400px;
+    max-height: 400px;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -459,4 +461,12 @@ figcaption {
 
 .delButton {
     background-color: darkred;
+}
+
+.phpmetricsImage {
+    width: 1500px;
+}
+
+.cardRevealDiv {
+    height: 41px;
 }

@@ -24,7 +24,6 @@ class PlayerTest extends TestCase
      */
     public function testCreatePlayerWrongIdentifier(): void
     {
-
         $this->expectException(TypeError::class);
         $player = new Player(3.24);
     }
